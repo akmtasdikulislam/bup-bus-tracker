@@ -35,7 +35,9 @@
 
 ## 🚀 Live Demo
 
-> Coming soon on [Vercel](https://vercel.com/) (Frontend) and [Render](https://render.com/) (Backend)  
+- **Frontend**: [Live Demo](https://bup-bus-tracker.vercel.app/)
+- **Backend**: Coming soon on [Render](https://render.com/)
+
 > Live API will be hosted via [Render](https://render.com/)
 
 ---
