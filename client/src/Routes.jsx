@@ -74,7 +74,7 @@ const router = createBrowserRouter([
                     Muztaba Rafid
                   </h3>
                   <p className="text-xs text-gray-100/90 sm:text-sm">
-                    MGT-6, Dept. of Management, FBS, BUP
+                    MGT-10, Dept. of Management, FBS, BUP
                   </p>
                 </div>
               </div>
