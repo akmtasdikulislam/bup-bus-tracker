@@ -7,19 +7,22 @@ import {
   PiSteeringWheelDuotone,
   PiUserDuotone,
 } from "react-icons/pi";
+import toast from "react-hot-toast";
 
 import { useNavigate, useSearchParams } from "react-router";
 import BUPCover from "../../assets/images/bup-cover.jpg";
 import Logo from "../../assets/logo/bup-bus-tracker-logo.png";
 import { GLASS_PRESETS } from "../../utils/glassomorphism";
+import { useAuth } from "../../hooks/useAuth";
 
 const Login = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const userType = searchParams.get("type") || "passenger";
+  const { login: authLogin } = useAuth();
 
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
     rememberMe: false,
   });
@@ -39,12 +42,33 @@ const Login = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Login attempt:", { ...formData, userType });
+    try {
+      const result = await authLogin(formData.email, formData.password);
+      
+      toast.success("Login successful!");
+      
+      // Navigate based on user role
+      const role = result.backendUser?.role || "passenger";
+      
+      switch (role) {
+        case "admin":
+          navigate("/admin");
+          break;
+        case "driver":
+          navigate("/driver");
+          break;
+        case "moderator":
+          navigate("/moderator");
+          break;
+        default:
+          navigate("/passenger");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      toast.error(error.message || "Failed to login. Please try again.");
+    } finally {
       setIsLoading(false);
-      // Handle login logic here
-    }, 1500);
+    }
   };
 
   const handleBack = () => {
@@ -130,25 +154,25 @@ const Login = () => {
 
         {/* Login Form */}
         <form onSubmit={handleSubmit} className="w-full space-y-4 sm:space-y-6">
-          {/* Username Field */}
+          {/* Email Field */}
           <div className="space-y-2">
             <label
-              htmlFor="username"
+              htmlFor="email"
               className="block text-sm font-semibold text-green-100 sm:text-base"
             >
-              Username
+              Email
             </label>
             <div className="relative">
               <PiUserDuotone className="absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2 text-gray-300" />
               <input
-                type="text"
-                id="username"
-                name="username"
-                value={formData.username}
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
                 onChange={handleInputChange}
                 required
                 className={`w-full rounded-lg py-3 pr-4 pl-10 text-white placeholder-gray-300 ${GLASS_PRESETS.FORM_INPUT}`}
-                placeholder="Enter your username"
+                placeholder="Enter your email"
               />
             </div>
           </div>

@@ -6,8 +6,11 @@ import {
   PiPaperPlaneTiltDuotone,
 } from "react-icons/pi";
 import { useNavigate, useSearchParams } from "react-router";
+import { sendPasswordResetEmail } from "firebase/auth";
+import toast from "react-hot-toast";
 import BUPCover from "../../assets/images/bup-cover.jpg";
 import Logo from "../../assets/logo/bup-bus-tracker-logo.png";
+import { auth } from "../../lib/firebase";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -35,12 +38,36 @@ const ForgotPassword = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log("Password reset request:", formData);
-      setIsLoading(false);
+    try {
+      await sendPasswordResetEmail(auth, formData.email);
       setIsEmailSent(true);
-    }, 2000);
+      toast.success("Password reset email sent successfully!");
+    } catch (error) {
+      console.error("Password reset error:", error);
+      
+      // Handle specific Firebase errors
+      let errorMessage = "Failed to send reset email. Please try again.";
+      
+      if (error.code) {
+        switch (error.code) {
+          case "auth/user-not-found":
+            errorMessage = "No account found with this email address.";
+            break;
+          case "auth/invalid-email":
+            errorMessage = "Invalid email address.";
+            break;
+          case "auth/too-many-requests":
+            errorMessage = "Too many requests. Please try again later.";
+            break;
+          default:
+            errorMessage = error.message;
+        }
+      }
+      
+      toast.error(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleBack = () => {
