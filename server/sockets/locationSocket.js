@@ -1,10 +1,10 @@
-// Socket.io config for live location updates
+ 
 const { authenticateToken } = require('../middlewares/authMiddleware');
 const LiveLocation = require('../models/LiveLocation');
 const jwt = require('jsonwebtoken');
 
 const setupLocationSocket = (io) => {
-  // Middleware to authenticate socket connections
+   
   io.use(async (socket, next) => {
     try {
       const token = socket.handshake.auth.token;
@@ -31,7 +31,6 @@ const setupLocationSocket = (io) => {
   io.on('connection', (socket) => {
     console.log(`User connected: ${socket.user.name} (${socket.user.role}) - Socket ID: ${socket.id}`);
 
-    // Join user to appropriate rooms based on role
     if (socket.user.role === 'driver') {
       socket.join('drivers');
     } else if (socket.user.role === 'student') {
@@ -40,7 +39,6 @@ const setupLocationSocket = (io) => {
       socket.join('admins');
     }
 
-    // Driver location updates
     socket.on('locationUpdate', async (data) => {
       try {
         if (socket.user.role !== 'driver') {
@@ -50,13 +48,11 @@ const setupLocationSocket = (io) => {
 
         const { scheduleId, latitude, longitude, heading, speed, passengers } = data;
 
-        // Validate required fields
         if (!scheduleId || !latitude || !longitude) {
           socket.emit('error', { message: 'Missing required location data' });
           return;
         }
 
-        // Update or create location record
         let location = await LiveLocation.findOne({ scheduleId });
         
         if (location) {
@@ -86,7 +82,6 @@ const setupLocationSocket = (io) => {
 
         await location.save();
 
-        // Broadcast location update to all connected clients
         const locationUpdate = {
           scheduleId,
           latitude,
@@ -98,14 +93,11 @@ const setupLocationSocket = (io) => {
           driverName: socket.user.name,
         };
 
-        // Emit to all users
         io.emit('busLocationUpdate', locationUpdate);
-        
-        // Emit to specific rooms
+
         io.to('students').emit('busLocationUpdate', locationUpdate);
         io.to('admins').emit('busLocationUpdate', locationUpdate);
 
-        // Acknowledge the driver
         socket.emit('locationUpdateAck', { 
           success: true, 
           message: 'Location updated successfully',
@@ -118,7 +110,6 @@ const setupLocationSocket = (io) => {
       }
     });
 
-    // Driver trip status updates
     socket.on('tripStatusUpdate', async (data) => {
       try {
         if (socket.user.role !== 'driver') {
@@ -146,7 +137,6 @@ const setupLocationSocket = (io) => {
 
         await location.save();
 
-        // Broadcast trip status update
         io.emit('tripStatusUpdate', {
           scheduleId,
           status,
@@ -165,7 +155,6 @@ const setupLocationSocket = (io) => {
       }
     });
 
-    // Subscribe to specific bus updates
     socket.on('subscribeToBus', (scheduleId) => {
       if (scheduleId) {
         socket.join(`bus-${scheduleId}`);
@@ -173,7 +162,6 @@ const setupLocationSocket = (io) => {
       }
     });
 
-    // Unsubscribe from bus updates
     socket.on('unsubscribeFromBus', (scheduleId) => {
       if (scheduleId) {
         socket.leave(`bus-${scheduleId}`);
@@ -181,7 +169,6 @@ const setupLocationSocket = (io) => {
       }
     });
 
-    // Get active buses (for admins and students)
     socket.on('getActiveBuses', async () => {
       try {
         const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
@@ -206,7 +193,6 @@ const setupLocationSocket = (io) => {
       }
     });
 
-    // Emergency alert (drivers can send, all receive)
     socket.on('emergencyAlert', async (data) => {
       try {
         const { scheduleId, message, location } = data;
@@ -221,10 +207,8 @@ const setupLocationSocket = (io) => {
           type: 'emergency',
         };
 
-        // Broadcast emergency alert to all users
         io.emit('emergencyAlert', alert);
-        
-        // Send to admins with high priority
+
         io.to('admins').emit('priorityAlert', alert);
 
         console.log(`Emergency alert from ${socket.user.name}: ${message}`);
@@ -239,11 +223,9 @@ const setupLocationSocket = (io) => {
       }
     });
 
-    // Handle disconnection
     socket.on('disconnect', async (reason) => {
       console.log(`User disconnected: ${socket.user.name} - Reason: ${reason}`);
-      
-      // If driver disconnects, mark their location as inactive
+
       if (socket.user.role === 'driver') {
         try {
           await LiveLocation.updateMany(
@@ -253,8 +235,7 @@ const setupLocationSocket = (io) => {
               lastUpdated: new Date(),
             }
           );
-          
-          // Notify other users that driver went offline
+
           io.emit('driverOffline', {
             driverId: socket.user._id,
             driverName: socket.user.name,
@@ -266,18 +247,15 @@ const setupLocationSocket = (io) => {
       }
     });
 
-    // Ping/Pong for connection health
     socket.on('ping', () => {
       socket.emit('pong', { timestamp: new Date() });
     });
   });
 
-  // Periodic cleanup of stale location data
   setInterval(async () => {
     try {
       const tenMinutesAgo = new Date(Date.now() - 10 * 60 * 1000);
-      
-      // Mark old locations as inactive
+
       await LiveLocation.updateMany(
         { 
           lastUpdated: { $lte: tenMinutesAgo },
@@ -285,8 +263,7 @@ const setupLocationSocket = (io) => {
         },
         { status: 'inactive' }
       );
-      
-      // Delete very old location records (older than 24 hours)
+
       const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
       await LiveLocation.deleteMany({
         lastUpdated: { $lte: twentyFourHoursAgo },
@@ -295,7 +272,7 @@ const setupLocationSocket = (io) => {
     } catch (error) {
       console.error('Location cleanup error:', error);
     }
-  }, 5 * 60 * 1000); // Run every 5 minutes
+  }, 5 * 60 * 1000);  
 
   return io;
 };

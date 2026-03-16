@@ -1,4 +1,4 @@
-// Central error handling
+ 
 const errorHandler = (err, req, res, next) => {
   console.error('Error:', {
     message: err.message,
@@ -10,13 +10,11 @@ const errorHandler = (err, req, res, next) => {
     timestamp: new Date().toISOString(),
   });
 
-  // Default error response
   let error = {
     message: err.message || 'Internal Server Error',
     status: err.statusCode || 500,
   };
 
-  // Mongoose validation error
   if (err.name === 'ValidationError') {
     const errors = Object.values(err.errors).map(e => ({
       field: e.path,
@@ -29,7 +27,6 @@ const errorHandler = (err, req, res, next) => {
     };
   }
 
-  // Mongoose duplicate key error
   if (err.code === 11000) {
     const field = Object.keys(err.keyValue)[0];
     error = {
@@ -38,7 +35,6 @@ const errorHandler = (err, req, res, next) => {
     };
   }
 
-  // JWT errors
   if (err.name === 'JsonWebTokenError') {
     error = {
       message: 'Invalid token',
@@ -53,7 +49,6 @@ const errorHandler = (err, req, res, next) => {
     };
   }
 
-  // Mongoose cast error (invalid ObjectId)
   if (err.name === 'CastError') {
     error = {
       message: 'Invalid ID format',
@@ -61,22 +56,20 @@ const errorHandler = (err, req, res, next) => {
     };
   }
 
-  // Don't leak error details in production
   if (process.env.NODE_ENV === 'production') {
     if (error.status === 500) {
       error.message = 'Something went wrong';
     }
-    // Remove stack trace in production
+     
     delete error.stack;
   } else {
-    // Include stack trace in development
+     
     error.stack = err.stack;
   }
 
   res.status(error.status).json(error);
 };
 
-// Handle 404 errors
 const notFound = (req, res, next) => {
   const error = new Error(`Route not found - ${req.originalUrl}`);
   error.statusCode = 404;

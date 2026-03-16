@@ -1,12 +1,11 @@
-// JWT + role-based guards
+ 
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-// Verify JWT token
 const authenticateToken = async (req, res, next) => {
   try {
     const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
+    const token = authHeader && authHeader.split(' ')[1];  
 
     if (!token) {
       return res.status(401).json({ message: 'Access token required' });
@@ -31,7 +30,6 @@ const authenticateToken = async (req, res, next) => {
   }
 };
 
-// Role-based authorization
 const authorizeRoles = (...roles) => {
   return (req, res, next) => {
     if (!req.user) {
@@ -48,16 +46,12 @@ const authorizeRoles = (...roles) => {
   };
 };
 
-// Admin only middleware
 const adminOnly = authorizeRoles('admin');
 
-// Driver only middleware
 const driverOnly = authorizeRoles('driver');
 
-// Student only middleware
 const studentOnly = authorizeRoles('student');
 
-// Driver or Admin middleware
 const driverOrAdmin = authorizeRoles('driver', 'admin');
 
 module.exports = {

@@ -18,12 +18,12 @@ const scheduleSchema = new mongoose.Schema({
     uppercase: true,
   },
   departureTime: {
-    type: String, // Format: "HH:MM" (24-hour format)
+    type: String,  
     required: [true, 'Departure time is required'],
     match: [/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, 'Please enter a valid time in HH:MM format'],
   },
   arrivalTime: {
-    type: String, // Format: "HH:MM" (24-hour format)
+    type: String,  
     required: [true, 'Arrival time is required'],
     match: [/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, 'Please enter a valid time in HH:MM format'],
   },
@@ -59,7 +59,7 @@ const scheduleSchema = new mongoose.Schema({
     min: [0, 'Fare cannot be negative'],
   },
   estimatedDuration: {
-    type: Number, // in minutes
+    type: Number,  
     required: [true, 'Estimated duration is required'],
     min: [1, 'Duration must be at least 1 minute'],
   },
@@ -85,7 +85,6 @@ const scheduleSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-// Validate that arrival time is after departure time
 scheduleSchema.pre('save', function(next) {
   const departureMinutes = this.departureTime.split(':').reduce((acc, time) => (60 * acc) + parseInt(time), 0);
   const arrivalMinutes = this.arrivalTime.split(':').reduce((acc, time) => (60 * acc) + parseInt(time), 0);
@@ -97,7 +96,6 @@ scheduleSchema.pre('save', function(next) {
   }
 });
 
-// Validate current passengers doesn't exceed capacity
 scheduleSchema.pre('save', function(next) {
   if (this.currentPassengers > this.capacity) {
     next(new Error('Current passengers cannot exceed bus capacity'));
@@ -106,7 +104,6 @@ scheduleSchema.pre('save', function(next) {
   }
 });
 
-// Index for better query performance
 scheduleSchema.index({ routeId: 1 });
 scheduleSchema.index({ driverId: 1 });
 scheduleSchema.index({ departureTime: 1 });
@@ -115,12 +112,10 @@ scheduleSchema.index({ status: 1 });
 scheduleSchema.index({ isActive: 1 });
 scheduleSchema.index({ busNumber: 1 });
 
-// Virtual for available seats
 scheduleSchema.virtual('availableSeats').get(function() {
   return this.capacity - this.currentPassengers;
 });
 
-// Virtual for occupancy percentage
 scheduleSchema.virtual('occupancyPercentage').get(function() {
   return Math.round((this.currentPassengers / this.capacity) * 100);
 });

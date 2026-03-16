@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
         try {
-          // Get stored user data from localStorage
+           
           const storedUser = localStorage.getItem('backendUser');
           if (storedUser) {
             setBackendUser(JSON.parse(storedUser));

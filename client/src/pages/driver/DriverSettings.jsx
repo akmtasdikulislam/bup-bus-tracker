@@ -23,12 +23,10 @@ const DriverSettings = () => {
   const navigate = useNavigate();
   const [showNotifications, setShowNotifications] = useState(false);
 
-  // Settings states
   const [settings, setSettings] = useState({
-    // Profile Settings
+     
     defaultView: "dashboard",
 
-    // Notification Settings
     pushNotifications: true,
     emailNotifications: true,
     smsNotifications: true,
@@ -38,13 +36,11 @@ const DriverSettings = () => {
     emergencyNotifications: true,
     trafficNotifications: true,
 
-    // Privacy Settings
     showOnlineStatus: true,
     shareLocationData: true,
     allowPassengerRating: true,
     sharePerformanceData: false,
 
-    // Display Settings
     darkMode: false,
     language: "bn",
     timeFormat: "24h",
@@ -53,27 +49,23 @@ const DriverSettings = () => {
     autoRefresh: 15,
     showTrafficInfo: true,
 
-    // Security Settings
     twoFactorAuth: false,
     sessionTimeout: 30,
     passwordExpiry: 90,
     loginAttemptLimit: 5,
 
-    // Driver Settings
     autoAcceptTrips: false,
     breakReminders: true,
     fuelReminders: true,
     maintenanceReminders: true,
     speedLimitWarnings: true,
 
-    // Sound & Alerts
     soundEnabled: true,
     vibrationEnabled: true,
     voiceGuidance: true,
     navigationSound: true,
     alertVolume: 70,
 
-    // Accessibility Settings
     highContrast: false,
     largeText: false,
     reduceMotion: false,
@@ -87,7 +79,6 @@ const DriverSettings = () => {
     confirm: false,
   });
 
-  // Update time every minute
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -1177,7 +1168,7 @@ const DriverSettings = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Enhanced Background */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -1187,13 +1178,13 @@ const DriverSettings = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
-        {/* Animated Background Elements */}
+        { }
         <div className="absolute top-20 left-20 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-green-400/15 to-blue-400/15 blur-xl" />
         <div className="absolute top-40 right-32 h-24 w-24 animate-pulse rounded-full bg-gradient-to-r from-purple-400/15 to-pink-400/15 blur-xl delay-1000" />
         <div className="absolute bottom-32 left-1/3 h-40 w-40 animate-pulse rounded-full bg-gradient-to-r from-blue-400/15 to-green-400/15 blur-xl delay-2000" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="driver"
         pageTitle="Profile"
@@ -1205,12 +1196,12 @@ const DriverSettings = () => {
         onSettingsPage={true}
       />
 
-      {/* Main Content */}
+      { }
       <main
         className={`relative ${Z_CLASSES.CONTENT} mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8`}
       >
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
-          {/* Settings Navigation */}
+          { }
           <div className="lg:col-span-1">
             <div className="rounded-xl border border-white/30 bg-black/30 p-6 backdrop-blur-xl">
               <h2 className="mb-4 text-lg font-semibold text-white">
@@ -1235,7 +1226,7 @@ const DriverSettings = () => {
             </div>
           </div>
 
-          {/* Settings Content */}
+          { }
           <div className="lg:col-span-3">{renderContent()}</div>
         </div>
       </main>

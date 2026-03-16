@@ -27,7 +27,6 @@ const SearchResults = () => {
   const performSearch = async (query) => {
     setLoading(true);
 
-    // Simulate API call with mock data
     setTimeout(() => {
       const mockRoutes = [
         {
@@ -203,7 +202,6 @@ const SearchResults = () => {
         },
       ];
 
-      // Enhanced filtering - search in multiple fields with better matching
       const searchLower = query.toLowerCase().trim();
 
       const filteredRoutes = mockRoutes.filter((route) => {
@@ -295,7 +293,7 @@ const SearchResults = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Enhanced Background with Glassomorphism */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -305,13 +303,13 @@ const SearchResults = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
-        {/* Animated Background Elements */}
+        { }
         <div className="absolute top-20 left-20 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-blue-400/15 to-purple-400/15 blur-xl" />
         <div className="absolute top-40 right-32 h-24 w-24 animate-pulse rounded-full bg-gradient-to-r from-green-400/15 to-blue-400/15 blur-xl delay-1000" />
         <div className="absolute bottom-32 left-1/3 h-40 w-40 animate-pulse rounded-full bg-gradient-to-r from-purple-400/15 to-pink-400/15 blur-xl delay-2000" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="passenger"
         pageTitle={`Search Results - "${searchParams.get("q")}"`}
@@ -340,9 +338,9 @@ const SearchResults = () => {
         }
       />
 
-      {/* Main Content */}
+      { }
       <main className={`relative ${Z_CLASSES.CONTENT} mx-auto max-w-full px-4 py-6 sm:px-6 lg:px-8`}>
-        {/* Search Info */}
+        { }
         <div className="mb-6 rounded-xl border border-white/30 bg-black/30 p-6 backdrop-blur-xl">
           <div className="flex items-center justify-between">
             <div>
@@ -378,7 +376,7 @@ const SearchResults = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {/* Routes Results */}
+            { }
             <div className="space-y-4">
               <div className="mb-4 flex items-center gap-2">
                 <PiLineSegmentsDuotone className="h-6 w-6 text-green-200" />
@@ -449,7 +447,7 @@ const SearchResults = () => {
               )}
             </div>
 
-            {/* Buses Results */}
+            { }
             <div className="space-y-4">
               <div className="mb-4 flex items-center gap-2">
                 <PiBusDuotone className="h-6 w-6 text-orange-200" />

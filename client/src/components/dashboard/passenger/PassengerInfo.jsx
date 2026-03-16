@@ -10,7 +10,7 @@ import {
 const PassengerInfo = ({ passengerData }) => {
   return (
     <div className="space-y-6">
-      {/* Main Profile Card */}
+      { }
       <div className="hover:shadow-3xl rounded-2xl border border-white/40 bg-black/40 p-6 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:bg-black/50">
         <div className="mb-4 flex items-center gap-3">
           <PiUserDuotone className="h-6 w-6 text-blue-200 drop-shadow-lg" />
@@ -20,7 +20,7 @@ const PassengerInfo = ({ passengerData }) => {
         </div>
 
         <div className="space-y-6">
-          {/* Profile Photo & Basic Info */}
+          { }
           <div className="text-center">
             <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full border-4 border-blue-300/60 shadow-xl backdrop-blur-sm">
               <img
@@ -43,7 +43,7 @@ const PassengerInfo = ({ passengerData }) => {
             </div>
           </div>
 
-          {/* Academic Information */}
+          { }
           <div className="space-y-3">
             <div className="flex items-center gap-3 rounded-xl border border-white/30 bg-white/20 p-3 backdrop-blur-md transition-all duration-200 hover:bg-white/30">
               <PiIdentificationCardDuotone className="h-5 w-5 text-green-200 drop-shadow-lg" />
@@ -99,7 +99,7 @@ const PassengerInfo = ({ passengerData }) => {
             </div>
           </div>
 
-          {/* Stats */}
+          { }
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-xl border border-blue-300/50 bg-blue-500/20 p-3 text-center backdrop-blur-md">
               <p className="text-sm font-medium text-blue-200 drop-shadow-lg">

@@ -107,7 +107,6 @@ const BusModal = ({ isOpen, onClose, bus, mode, onSave }) => {
       [name]: value,
     }));
 
-    // Clear error for this field
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -146,7 +145,6 @@ const BusModal = ({ isOpen, onClose, bus, mode, onSave }) => {
     if (!formData.mileage || formData.mileage <= 0)
       newErrors.mileage = "Valid mileage is required";
 
-    // Check if next maintenance is after last maintenance
     if (formData.lastMaintenance && formData.nextMaintenance) {
       const lastDate = new Date(formData.lastMaintenance);
       const nextDate = new Date(formData.nextMaintenance);
@@ -174,7 +172,7 @@ const BusModal = ({ isOpen, onClose, bus, mode, onSave }) => {
       className={`fixed inset-0 ${Z_CLASSES.MODAL} flex items-center justify-center bg-black/50 backdrop-blur-sm`}
     >
       <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-xl border border-white/30 bg-black/80 backdrop-blur-xl">
-        {/* Header */}
+        { }
         <div
           className={`sticky top-0 ${Z_CLASSES.MODAL_HEADER} flex items-center justify-between border-b border-white/20 bg-black/90 p-6`}
         >
@@ -193,10 +191,10 @@ const BusModal = ({ isOpen, onClose, bus, mode, onSave }) => {
           </button>
         </div>
 
-        {/* Content */}
+        { }
         <div className={`relative ${Z_CLASSES.MODAL_CONTENT} p-6`}>
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Photo Upload */}
+            { }
             <div className="flex items-center gap-4">
               <div className="relative">
                 {formData.photo ? (
@@ -236,7 +234,7 @@ const BusModal = ({ isOpen, onClose, bus, mode, onSave }) => {
               )}
             </div>
 
-            {/* Basic Information */}
+            { }
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <div>
                 <label className="block text-sm font-medium text-white">
@@ -359,7 +357,7 @@ const BusModal = ({ isOpen, onClose, bus, mode, onSave }) => {
               </div>
             </div>
 
-            {/* Assignment Information */}
+            { }
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
                 <label className="block text-sm font-medium text-white">
@@ -440,7 +438,7 @@ const BusModal = ({ isOpen, onClose, bus, mode, onSave }) => {
               </div>
             </div>
 
-            {/* Performance & Maintenance */}
+            { }
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <div>
                 <label className="block text-sm font-medium text-white">
@@ -501,7 +499,7 @@ const BusModal = ({ isOpen, onClose, bus, mode, onSave }) => {
               </div>
             </div>
 
-            {/* Additional Info for View Mode */}
+            { }
             {mode === "view" && bus && (
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
@@ -529,7 +527,7 @@ const BusModal = ({ isOpen, onClose, bus, mode, onSave }) => {
               </div>
             )}
 
-            {/* Buttons */}
+            { }
             <div className="flex justify-end gap-3 pt-4">
               <button
                 type="button"

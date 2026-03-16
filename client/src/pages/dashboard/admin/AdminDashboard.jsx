@@ -18,7 +18,7 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
 
   const handleNotificationClick = () => {
-    // Handle notification click
+     
     console.log("Notification clicked");
   };
 
@@ -34,7 +34,6 @@ const AdminDashboard = () => {
     navigate("/");
   };
 
-  // Admin stats data
   const adminStats = {
     totalPassengers: 2456,
     totalDrivers: 45,
@@ -46,7 +45,6 @@ const AdminDashboard = () => {
     monthlyRevenue: "৳1,234,567",
   };
 
-  // Quick actions for admin
   const quickActions = [
     {
       id: 1,
@@ -118,7 +116,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Enhanced Background with Glassomorphism */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -128,13 +126,13 @@ const AdminDashboard = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
-        {/* Animated Background Elements */}
+        { }
         <div className="absolute top-20 left-20 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-blue-400/15 to-purple-400/15 blur-xl" />
         <div className="absolute top-40 right-32 h-24 w-24 animate-pulse rounded-full bg-gradient-to-r from-green-400/15 to-blue-400/15 blur-xl delay-1000" />
         <div className="absolute bottom-32 left-1/3 h-40 w-40 animate-pulse rounded-full bg-gradient-to-r from-purple-400/15 to-pink-400/15 blur-xl delay-2000" />
       </div>
 
-      {/* Header with Enhanced Glassomorphism */}
+      { }
       <Header
         userType="admin"
         pageTitle="Dashboard"
@@ -145,12 +143,12 @@ const AdminDashboard = () => {
         onLogoutClick={handleLogoutClick}
       />
 
-      {/* Main Content */}
+      { }
       <main
         className={`relative ${Z_CLASSES.CONTENT} mx-auto max-w-full px-4 py-6 sm:px-6 lg:px-8`}
       >
         <div className="space-y-6">
-          {/* Welcome Section */}
+          { }
           <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
             <div className="text-center">
               <h2 className="text-2xl font-bold text-white drop-shadow-lg">
@@ -162,13 +160,13 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          {/* Stats Section */}
+          { }
           <AdminStats stats={adminStats} />
 
-          {/* Quick Actions */}
+          { }
           <QuickActions actions={quickActions} />
 
-          {/* Recent Activity */}
+          { }
           <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
             <h3 className="mb-4 text-lg font-semibold text-white">
               Recent Activity

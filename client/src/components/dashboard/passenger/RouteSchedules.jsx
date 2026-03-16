@@ -11,7 +11,6 @@ const RouteSchedules = () => {
   const navigate = useNavigate();
   const [selectedRoute, setSelectedRoute] = useState("bup-savar");
 
-  // Placeholder route schedules data
   const routeSchedules = {
     "bup-savar": {
       name: "BUP → Savar",
@@ -152,7 +151,7 @@ const RouteSchedules = () => {
         </button>
       </div>
 
-      {/* Route Selector */}
+      { }
       <div className="mb-4 flex rounded-lg border border-white/30 bg-black/30 p-1 backdrop-blur-md">
         {Object.entries(routeSchedules).map(([key, route]) => (
           <button
@@ -172,7 +171,7 @@ const RouteSchedules = () => {
         ))}
       </div>
 
-      {/* Schedules List */}
+      { }
       <div className="h-48 space-y-2 overflow-y-auto">
         {currentRoute.schedules.map((schedule) => (
           <div

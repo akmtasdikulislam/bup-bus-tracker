@@ -60,7 +60,7 @@ const NotificationsDropdown = ({ isOpen, onClose }) => {
     },
   ]);
 
-  const [filter, setFilter] = useState("all"); // all, unread, read
+  const [filter, setFilter] = useState("all");  
 
   const getNotificationIcon = (type) => {
     switch (type) {
@@ -124,7 +124,7 @@ const NotificationsDropdown = ({ isOpen, onClose }) => {
 
   return (
     <div className="absolute top-full right-0 mt-2 w-96 max-w-[90vw] rounded-2xl border border-white/30 bg-black/90 shadow-2xl backdrop-blur-xl">
-      {/* Header */}
+      { }
       <div className="flex items-center justify-between border-b border-white/20 p-4">
         <div className="flex items-center gap-3">
           <PiBellDuotone className="h-5 w-5 text-purple-300 drop-shadow-lg" />
@@ -146,7 +146,7 @@ const NotificationsDropdown = ({ isOpen, onClose }) => {
         </button>
       </div>
 
-      {/* Filter Tabs */}
+      { }
       <div className="flex border-b border-white/20 bg-white/5">
         {[
           { key: "all", label: "All", count: notifications.length },
@@ -171,7 +171,7 @@ const NotificationsDropdown = ({ isOpen, onClose }) => {
         ))}
       </div>
 
-      {/* Action Buttons */}
+      { }
       {notifications.length > 0 && (
         <div className="flex gap-2 border-b border-white/20 bg-white/5 p-3">
           {unreadCount > 0 && (
@@ -193,7 +193,7 @@ const NotificationsDropdown = ({ isOpen, onClose }) => {
         </div>
       )}
 
-      {/* Notifications List */}
+      { }
       <div className="max-h-96 overflow-y-auto">
         {filteredNotifications.length > 0 ? (
           <div className="space-y-1 p-2">
@@ -272,7 +272,7 @@ const NotificationsDropdown = ({ isOpen, onClose }) => {
         )}
       </div>
 
-      {/* Footer */}
+      { }
       {notifications.length > 0 && (
         <div className="border-t border-white/20 bg-white/5 p-3 text-center">
           <button

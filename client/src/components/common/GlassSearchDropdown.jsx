@@ -20,7 +20,6 @@ const GlassSearchDropdown = ({
   const dropdownRef = useRef(null);
   const searchInputRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -33,7 +32,6 @@ const GlassSearchDropdown = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Focus search input when dropdown opens
   useEffect(() => {
     if (isOpen && searchInputRef.current) {
       searchInputRef.current.focus();
@@ -65,7 +63,7 @@ const GlassSearchDropdown = ({
 
   return (
     <div className={`relative space-y-1 ${className}`} ref={dropdownRef}>
-      {/* Main dropdown button */}
+      { }
       <div
         onClick={handleToggle}
         className={`w-full rounded-lg py-2.5 px-3 text-sm text-white cursor-pointer ${GLASS_PRESETS.FORM_SELECT} ${
@@ -83,13 +81,13 @@ const GlassSearchDropdown = ({
         </div>
       </div>
 
-      {/* Dropdown menu */}
+      { }
       {isOpen && (
         <div 
           className={`absolute z-50 w-full mt-1 rounded-lg ${GLASS_PRESETS.DROPDOWN_MENU} overflow-hidden`}
           style={{ maxHeight }}
         >
-          {/* Search input */}
+          { }
           <div className="p-2 border-b border-white/20">
             <div className="relative">
               <PiMagnifyingGlassDuotone className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-300" />
@@ -104,7 +102,7 @@ const GlassSearchDropdown = ({
             </div>
           </div>
 
-          {/* Options list */}
+          { }
           <div className="overflow-y-auto" style={{ maxHeight: `calc(${maxHeight} - 60px)` }}>
             {filteredOptions.length === 0 ? (
               <div className="px-3 py-2 text-sm text-gray-300">

@@ -1,7 +1,6 @@
-// Firebase Admin SDK initialization
+ 
 const admin = require('firebase-admin');
 
-// Initialize Firebase Admin SDK
 const serviceAccount = {
   type: process.env.FIREBASE_TYPE,
   project_id: process.env.FIREBASE_PROJECT_ID,
@@ -18,7 +17,6 @@ const serviceAccount = {
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
-
 
 module.exports = { admin };
 

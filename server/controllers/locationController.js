@@ -1,9 +1,8 @@
-// Real-time location logic
+ 
 const LiveLocation = require('../models/LiveLocation');
 const Schedule = require('../models/Schedule');
 const { validationResult } = require('express-validator');
 
-// Update bus location (driver only)
 const updateLocation = async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -13,7 +12,6 @@ const updateLocation = async (req, res) => {
 
     const { scheduleId, latitude, longitude, heading, speed } = req.body;
 
-    // Check if schedule exists and belongs to the driver
     const schedule = await Schedule.findOne({ 
       _id: scheduleId, 
       driverId: req.user.id,
@@ -24,7 +22,6 @@ const updateLocation = async (req, res) => {
       return res.status(404).json({ message: 'Schedule not found or unauthorized' });
     }
 
-    // Update or create location record
     let location = await LiveLocation.findOne({ scheduleId });
     
     if (location) {
@@ -45,8 +42,7 @@ const updateLocation = async (req, res) => {
     }
 
     await location.save();
-    
-    // Emit location update via Socket.io
+
     req.io.emit('locationUpdate', {
       scheduleId,
       latitude,
@@ -63,7 +59,6 @@ const updateLocation = async (req, res) => {
   }
 };
 
-// Get current location of a bus
 const getBusLocation = async (req, res) => {
   try {
     const { scheduleId } = req.params;
@@ -88,10 +83,9 @@ const getBusLocation = async (req, res) => {
   }
 };
 
-// Get all active bus locations
 const getAllActiveLocations = async (req, res) => {
   try {
-    // Get locations updated within the last 5 minutes
+     
     const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
     
     const locations = await LiveLocation.find({ 
@@ -113,7 +107,6 @@ const getAllActiveLocations = async (req, res) => {
   }
 };
 
-// Stop tracking (driver only)
 const stopTracking = async (req, res) => {
   try {
     const { scheduleId } = req.params;
@@ -128,8 +121,7 @@ const stopTracking = async (req, res) => {
     }
 
     await LiveLocation.deleteOne({ _id: location._id });
-    
-    // Emit stop tracking event
+
     req.io.emit('trackingStopped', { scheduleId });
 
     res.json({ message: 'Tracking stopped successfully' });

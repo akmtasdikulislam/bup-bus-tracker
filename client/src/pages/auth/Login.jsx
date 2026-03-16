@@ -46,8 +46,7 @@ const Login = () => {
       const result = await authLogin(formData.email, formData.password);
       
       toast.success("Login successful!");
-      
-      // Navigate based on user role
+
       const role = result.backendUser?.role || "passenger";
       
       switch (role) {
@@ -101,7 +100,7 @@ const Login = () => {
 
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
-      {/* Background Image Overlay */}
+      { }
       <div className="absolute inset-0 z-0">
         <img
           src={BUPCover}
@@ -111,7 +110,7 @@ const Login = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
       </div>
 
-      {/* Back Button */}
+      { }
       <button
         onClick={handleBack}
         className={`absolute top-4 left-4 z-20 flex items-center gap-2 rounded-lg px-3 py-2 text-white sm:top-6 sm:left-6 sm:px-4 sm:py-3 ${GLASS_PRESETS.BACK_BUTTON}`}
@@ -122,9 +121,9 @@ const Login = () => {
         </span>
       </button>
 
-      {/* Main Content */}
+      { }
       <div className={`relative z-10 mx-4 flex w-11/12 max-w-full flex-col items-center gap-6 rounded-xl px-4 py-8 sm:mx-4 sm:max-w-md sm:gap-8 sm:rounded-2xl sm:px-8 sm:py-10 md:max-w-lg md:px-10 md:py-12 ${GLASS_PRESETS.AUTH_MAIN}`}>
-        {/* Header */}
+        { }
         <div className="flex flex-col items-center gap-3 sm:gap-4">
           <button
             onClick={handleLogoClick}
@@ -137,7 +136,7 @@ const Login = () => {
             />
           </button>
 
-          {/* User Type Icon - Centered above title */}
+          { }
           <div className="flex justify-center">{getUserIcon()}</div>
 
           <h1 className="text-center text-xl font-extrabold text-green-100 drop-shadow-lg sm:text-2xl md:text-3xl">
@@ -152,9 +151,9 @@ const Login = () => {
           </p>
         </div>
 
-        {/* Login Form */}
+        { }
         <form onSubmit={handleSubmit} className="w-full space-y-4 sm:space-y-6">
-          {/* Email Field */}
+          { }
           <div className="space-y-2">
             <label
               htmlFor="email"
@@ -177,7 +176,7 @@ const Login = () => {
             </div>
           </div>
 
-          {/* Password Field */}
+          { }
           <div className="space-y-2">
             <label
               htmlFor="password"
@@ -211,7 +210,7 @@ const Login = () => {
             </div>
           </div>
 
-          {/* Remember Me & Forgot Password */}
+          { }
           <div className="flex items-center justify-between">
             <label className="flex items-center gap-2 text-sm text-gray-200">
               <input
@@ -233,7 +232,7 @@ const Login = () => {
             </button>
           </div>
 
-          {/* Login Button */}
+          { }
           <button
             type="submit"
             disabled={isLoading}
@@ -254,7 +253,7 @@ const Login = () => {
           </button>
         </form>
 
-        {/* Signup Link */}
+        { }
         <div className="text-center">
           <p className="text-sm text-gray-200/90 sm:text-base">
             Don't have an account?{" "}
@@ -268,7 +267,7 @@ const Login = () => {
         </div>
       </div>
 
-      {/* Footer */}
+      { }
       <footer className="relative z-10 mt-6 px-2 text-center text-xs text-gray-200/80 drop-shadow sm:mt-10">
         &copy; {new Date().getFullYear()}{" "}
         <span className="text-green-200">BUP Bus Tracker</span>. All rights

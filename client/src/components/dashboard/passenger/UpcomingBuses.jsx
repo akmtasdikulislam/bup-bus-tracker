@@ -9,7 +9,6 @@ import { useNavigate } from "react-router";
 const UpcomingBuses = () => {
   const navigate = useNavigate();
 
-  // Placeholder upcoming buses data
   const upcomingBuses = [
     {
       id: 1,
@@ -115,7 +114,7 @@ const UpcomingBuses = () => {
             key={bus.id}
             className="rounded-lg border border-white/30 bg-white/10 p-3 backdrop-blur-md transition-all duration-300 hover:bg-white/20 hover:shadow-lg"
           >
-            {/* Bus Header */}
+            { }
             <div className="mb-2 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span
@@ -141,7 +140,7 @@ const UpcomingBuses = () => {
               </span>
             </div>
 
-            {/* Bus Details */}
+            { }
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs">
                 <div className="flex items-center gap-2 text-gray-200">
@@ -174,7 +173,7 @@ const UpcomingBuses = () => {
               </div>
             </div>
 
-            {/* Time Until Departure */}
+            { }
             <div className="mt-3">
               <div className="mb-1 flex items-center justify-between text-xs text-gray-300">
                 <span className="drop-shadow">Departure in</span>
@@ -206,7 +205,7 @@ const UpcomingBuses = () => {
         ))}
       </div>
 
-      {/* Summary */}
+      { }
       <div className="mt-4 rounded-lg border border-orange-300/50 bg-orange-500/20 p-2 backdrop-blur-md">
         <div className="flex items-center justify-between text-sm">
           <span className="font-medium text-orange-200 drop-shadow-lg">

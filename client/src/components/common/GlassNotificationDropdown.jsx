@@ -18,7 +18,7 @@ const GlassNotificationDropdown = ({
   onMarkAllAsRead,
   onClearAll,
   className = "",
-  position = "right-0", // "right-0", "left-0", "center"
+  position = "right-0",  
   width = "w-80"
 }) => {
   const getNotificationIcon = (type) => {
@@ -79,7 +79,7 @@ const GlassNotificationDropdown = ({
     <div
       className={`absolute top-full ${position} ${Z_CLASSES.DROPDOWN} mt-2 ${width} rounded-xl ${GLASS_PRESETS.DROPDOWN_MENU} ${className}`}
     >
-      {/* Header */}
+      { }
       <div className="flex items-center justify-between border-b border-white/20 p-4">
         <div className="flex items-center gap-2">
           <PiBellDuotone className="h-5 w-5 text-blue-300 drop-shadow" />
@@ -101,7 +101,7 @@ const GlassNotificationDropdown = ({
         </button>
       </div>
 
-      {/* Actions */}
+      { }
       {notifications.length > 0 && (
         <div className="flex items-center justify-between border-b border-white/20 p-3">
           <button
@@ -120,7 +120,7 @@ const GlassNotificationDropdown = ({
         </div>
       )}
 
-      {/* Notifications List */}
+      { }
       <div className="max-h-96 overflow-y-auto">
         {notifications.length > 0 ? (
           <div className="space-y-1 p-2">

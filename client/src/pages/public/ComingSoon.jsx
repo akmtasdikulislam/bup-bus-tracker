@@ -6,7 +6,7 @@ import Logo from "../../assets/logo/bup-bus-tracker-logo.png";
 const ComingSoon = () => {
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
-      {/* Background Image Overlay */}
+      { }
       <div className="absolute inset-0 z-0">
         <img
           src={BUPCover}
@@ -16,7 +16,7 @@ const ComingSoon = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
       </div>
 
-      {/* Main Content */}
+      { }
       <div className="relative z-10 mx-4 flex w-11/12 max-w-full flex-col items-center gap-6 rounded-xl border border-white/30 bg-white/20 px-4 py-8 shadow-2xl backdrop-blur-lg sm:mx-4 sm:max-w-2xl sm:gap-8 sm:rounded-2xl sm:px-8 sm:py-10 md:mx-4 md:max-w-4xl md:px-10 md:py-12">
         <div className="flex flex-col items-center gap-3 sm:gap-4">
           <img
@@ -36,13 +36,13 @@ const ComingSoon = () => {
           </p>
         </div>
 
-        {/* Developers Section */}
+        { }
         <div className="mt-4 w-full sm:mt-6">
           <h5 className="mb-2 text-center font-semibold tracking-wide text-green-100 sm:mb-4">
             Developed by
           </h5>
           <div className="flex flex-col items-center justify-center gap-4 sm:gap-8 md:flex-row">
-            {/* Developer 1 */}
+            { }
             <div className="flex w-full flex-row items-center gap-3 rounded-lg border border-white/10 bg-white/10 p-3 shadow transition-transform duration-400 hover:scale-105 sm:gap-4 sm:p-4 md:w-auto">
               <img
                 src={AkmTasdikulIslam}
@@ -59,10 +59,10 @@ const ComingSoon = () => {
               </div>
             </div>
 
-            {/* Divider */}
+            { }
             <div className="hidden h-16 w-[2px] rounded-full bg-gradient-to-b from-green-300/50 to-white/20 md:block"></div>
 
-            {/* Developer 2 */}
+            { }
             <div className="flex w-full flex-row items-center gap-3 rounded-lg border border-white/10 bg-white/10 p-3 shadow transition-transform duration-400 hover:scale-105 sm:gap-4 sm:p-4 md:w-auto">
               <img
                 src={MuztabaRafid}
@@ -82,7 +82,7 @@ const ComingSoon = () => {
         </div>
       </div>
 
-      {/* Footer */}
+      { }
       <footer className="relative z-10 mt-6 px-2 text-center text-xs text-gray-200/80 drop-shadow sm:mt-10">
         &copy; {new Date().getFullYear()}{" "}
         <span className="text-green-200">BUP Bus Tracker</span>. All rights

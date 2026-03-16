@@ -23,7 +23,7 @@ const ModeratorQuickActions = ({ actions }) => {
               </div>
             </div>
             
-            {/* Hover effect overlay */}
+            { }
             <div className="absolute inset-0 rounded-xl bg-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </button>
         ))}

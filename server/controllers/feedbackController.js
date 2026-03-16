@@ -1,8 +1,7 @@
-// Feedback submissions
+ 
 const Feedback = require('../models/Feedback');
 const { validationResult } = require('express-validator');
 
-// Submit feedback
 const submitFeedback = async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -43,7 +42,6 @@ const submitFeedback = async (req, res) => {
   }
 };
 
-// Get all feedback (admin only)
 const getAllFeedback = async (req, res) => {
   try {
     const { status, type } = req.query;
@@ -70,7 +68,6 @@ const getAllFeedback = async (req, res) => {
   }
 };
 
-// Get user's feedback
 const getUserFeedback = async (req, res) => {
   try {
     const feedback = await Feedback.find({ userId: req.user.id })
@@ -90,7 +87,6 @@ const getUserFeedback = async (req, res) => {
   }
 };
 
-// Update feedback status (admin only)
 const updateFeedbackStatus = async (req, res) => {
   try {
     const { status, response } = req.body;

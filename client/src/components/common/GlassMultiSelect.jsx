@@ -17,7 +17,6 @@ const GlassMultiSelect = ({
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -65,7 +64,7 @@ const GlassMultiSelect = ({
 
   return (
     <div className={`relative space-y-1 ${className}`} ref={dropdownRef}>
-      {/* Main dropdown button */}
+      { }
       <div
         onClick={handleToggle}
         className={`w-full rounded-lg py-2.5 px-3 text-sm text-white cursor-pointer ${GLASS_PRESETS.FORM_SELECT} ${
@@ -103,7 +102,7 @@ const GlassMultiSelect = ({
         </div>
       </div>
 
-      {/* Dropdown menu */}
+      { }
       {isOpen && (
         <div 
           className={`absolute z-50 w-full mt-1 rounded-lg ${GLASS_PRESETS.DROPDOWN_MENU} overflow-hidden`}

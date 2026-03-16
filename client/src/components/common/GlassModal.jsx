@@ -8,7 +8,7 @@ const GlassModal = ({
   onClose, 
   title, 
   children, 
-  size = 'md', // 'sm', 'md', 'lg', 'xl', 'full'
+  size = 'md',  
   showCloseButton = true,
   className = "",
   headerClassName = "",
@@ -16,7 +16,7 @@ const GlassModal = ({
   footerActions = null,
   ...props 
 }) => {
-  // Close modal on Escape key
+   
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Escape' && isOpen) {
@@ -26,7 +26,7 @@ const GlassModal = ({
 
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
-      // Prevent body scroll when modal is open
+       
       document.body.style.overflow = 'hidden';
     }
 
@@ -36,7 +36,6 @@ const GlassModal = ({
     };
   }, [isOpen, onClose]);
 
-  // Handle backdrop click
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -72,7 +71,7 @@ const GlassModal = ({
         className={`relative max-h-[90vh] w-full ${getSizeClasses()} overflow-y-auto rounded-xl ${GLASS_PRESETS.MODAL_CONTAINER} ${className}`}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
+        { }
         <div className={`sticky top-0 ${Z_CLASSES.MODAL_HEADER} flex items-center justify-between border-b border-white/20 bg-black/90 p-6 ${headerClassName}`}>
           <h2 className="text-xl font-bold text-white">
             {title}
@@ -88,12 +87,12 @@ const GlassModal = ({
           )}
         </div>
 
-        {/* Content */}
+        { }
         <div className={`relative ${Z_CLASSES.MODAL_CONTENT} p-6 ${contentClassName}`}>
           {children}
         </div>
 
-        {/* Footer Actions */}
+        { }
         {footerActions && (
           <div className="sticky bottom-0 border-t border-white/20 bg-black/90 p-6">
             <div className="flex justify-end gap-3">

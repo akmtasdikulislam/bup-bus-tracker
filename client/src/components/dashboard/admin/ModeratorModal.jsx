@@ -124,7 +124,7 @@ const ModeratorModal = ({ isOpen, onClose, moderator, mode, onSave }) => {
       ...prev,
       [name]: value,
     }));
-    // Clear error when user starts typing
+     
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -206,7 +206,7 @@ const ModeratorModal = ({ isOpen, onClose, moderator, mode, onSave }) => {
       className={`fixed inset-0 ${Z_CLASSES.MODAL} flex items-center justify-center bg-black/50 backdrop-blur-sm`}
     >
       <div className="relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-xl border border-white/30 bg-black/80 backdrop-blur-xl">
-        {/* Header */}
+        { }
         <div
           className={`sticky top-0 ${Z_CLASSES.MODAL_HEADER} flex items-center justify-between border-b border-white/20 bg-black/90 p-6`}
         >
@@ -225,10 +225,10 @@ const ModeratorModal = ({ isOpen, onClose, moderator, mode, onSave }) => {
           </button>
         </div>
 
-        {/* Content */}
+        { }
         <div className={`relative ${Z_CLASSES.MODAL_CONTENT} p-6`}>
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Profile Photo */}
+            { }
             <div className="flex items-center gap-6">
               <div className="flex-shrink-0">
                 <img
@@ -253,7 +253,7 @@ const ModeratorModal = ({ isOpen, onClose, moderator, mode, onSave }) => {
               </div>
             </div>
 
-            {/* Basic Information */}
+            { }
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
                 <label className="mb-2 block text-sm font-medium text-white">
@@ -376,7 +376,7 @@ const ModeratorModal = ({ isOpen, onClose, moderator, mode, onSave }) => {
               </div>
             </div>
 
-            {/* Address */}
+            { }
             <div>
               <label className="mb-2 block text-sm font-medium text-white">
                 <PiMapPinDuotone className="mr-2 inline h-4 w-4" />
@@ -396,7 +396,7 @@ const ModeratorModal = ({ isOpen, onClose, moderator, mode, onSave }) => {
               )}
             </div>
 
-            {/* Password Fields (only for add mode) */}
+            { }
             {mode === "add" && (
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <div>
@@ -467,7 +467,7 @@ const ModeratorModal = ({ isOpen, onClose, moderator, mode, onSave }) => {
               </div>
             )}
 
-            {/* Permissions */}
+            { }
             <div>
               <label className="mb-4 block text-sm font-medium text-white">
                 <PiShieldDuotone className="mr-2 inline h-4 w-4" />
@@ -510,7 +510,7 @@ const ModeratorModal = ({ isOpen, onClose, moderator, mode, onSave }) => {
               )}
             </div>
 
-            {/* Status */}
+            { }
             <div>
               <label className="mb-2 block text-sm font-medium text-white">
                 Status
@@ -529,7 +529,7 @@ const ModeratorModal = ({ isOpen, onClose, moderator, mode, onSave }) => {
               />
             </div>
 
-            {/* Action Buttons */}
+            { }
             {mode !== "view" && (
               <div className="flex justify-end gap-4 border-t border-white/20 pt-6">
                 <button

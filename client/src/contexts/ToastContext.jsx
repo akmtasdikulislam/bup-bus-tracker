@@ -2,7 +2,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { ToastContext } from "../hooks/useToast";
 
 export const ToastProvider = ({ children }) => {
-  // Custom reusable toast functions
+   
   const notifySuccess = (message = "Action successful") =>
     toast.success(message, { duration: 3000 });
 

@@ -12,7 +12,7 @@ import { GLASS_PRESETS } from "../../utils/glassomorphism";
 import { Z_CLASSES } from "../../utils/zIndexLayers";
 
 const Header = ({
-  userType = "admin", // "admin", "passenger", "driver", "moderator"
+  userType = "admin",  
   pageTitle = "Dashboard",
   showBackButton = false,
   backButtonPath = "/",
@@ -29,16 +29,15 @@ const Header = ({
   onSettingsClick,
   onLogoutClick,
   className = "",
-  position = "relative", // "relative", "sticky", "fixed"
-  customActions = null, // Custom action buttons
-  customPageTitle = "", // Custom page title
+  position = "relative",  
+  customActions = null,  
+  customPageTitle = "",  
 }) => {
   const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showNotificationDropdown, setShowNotificationDropdown] =
     useState(false);
 
-  // Update time every minute
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -122,9 +121,9 @@ const Header = ({
     >
       <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Left Side - Logo */}
+          { }
           <div className="flex items-center gap-2">
-            {/* Logo */}
+            { }
             <button
               onClick={handleLogoClick}
               className="flex items-center gap-3 rounded-lg p-2 transition-all duration-300 hover:scale-105 hover:bg-white/10"
@@ -147,9 +146,9 @@ const Header = ({
             </button>
           </div>
 
-          {/* Right Side - Time and Actions */}
+          { }
           <div className="flex items-center gap-4">
-            {/* Current Time */}
+            { }
             {showDateTime && (
               <div className="hidden text-right md:block">
                 <p className="text-sm font-medium text-white drop-shadow-lg">
@@ -169,16 +168,16 @@ const Header = ({
               </div>
             )}
 
-            {/* Action Buttons */}
+            { }
             <div className="flex items-center gap-2">
-              {/* Custom Actions (CTAs) - Now positioned first for better visibility */}
+              { }
               {customActions && (
                 <div className="mr-2 flex items-center gap-2">
                   {customActions}
                 </div>
               )}
 
-              {/* Standard Actions Group */}
+              { }
               <div className="flex items-center gap-2">
                 {showBackButton && (
                   <button
@@ -189,7 +188,7 @@ const Header = ({
                     <PiArrowLeftDuotone className="h-5 w-5 drop-shadow-lg" />
                   </button>
                 )}
-                {/* Notifications */}
+                { }
                 {showNotifications && (
                   <div className="relative">
                     <button
@@ -205,7 +204,7 @@ const Header = ({
                       )}
                     </button>
 
-                    {/* Notification Dropdown placeholder - can be customized */}
+                    { }
                     {showNotificationDropdown && (
                       <div
                         className={`absolute top-12 right-0 ${Z_CLASSES.DROPDOWN} w-80 rounded-lg p-4 ${GLASS_PRESETS.DROPDOWN_MENU}`}
@@ -227,7 +226,7 @@ const Header = ({
                   </div>
                 )}
 
-                {/* Profile */}
+                { }
                 {showProfile && (
                   <button
                     onClick={handleProfileClick}
@@ -238,7 +237,7 @@ const Header = ({
                   </button>
                 )}
 
-                {/* Settings */}
+                { }
                 {showSettings && (
                   <button
                     onClick={handleSettingsClick}
@@ -249,7 +248,7 @@ const Header = ({
                   </button>
                 )}
 
-                {/* Logout - Always positioned last */}
+                { }
                 {showLogout && (
                   <button
                     onClick={handleLogoutClick}

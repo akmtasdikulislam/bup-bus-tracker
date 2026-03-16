@@ -111,7 +111,7 @@ const NotificationsDropdown = ({ isOpen, onClose }) => {
     <div
       className={`absolute top-full right-0 ${Z_CLASSES.DROPDOWN} mt-2 w-80 rounded-xl ${GLASS_PRESETS.DROPDOWN_MENU}`}
     >
-      {/* Header */}
+      { }
       <div className="flex items-center justify-between border-b border-white/20 p-4">
         <div className="flex items-center gap-2">
           <PiBellDuotone className="h-5 w-5 text-purple-300 drop-shadow" />
@@ -132,7 +132,7 @@ const NotificationsDropdown = ({ isOpen, onClose }) => {
         </button>
       </div>
 
-      {/* Actions */}
+      { }
       {notifications.length > 0 && (
         <div className="flex items-center justify-between border-b border-white/20 p-3">
           <button
@@ -151,7 +151,7 @@ const NotificationsDropdown = ({ isOpen, onClose }) => {
         </div>
       )}
 
-      {/* Notifications List */}
+      { }
       <div className="max-h-96 overflow-y-auto">
         {notifications.length > 0 ? (
           <div className="space-y-1 p-2">

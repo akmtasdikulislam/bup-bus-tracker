@@ -29,7 +29,6 @@ const AdminProfile = () => {
     confirm: false,
   });
 
-  // Profile data
   const [profileData, setProfileData] = useState({
     name: "প্রফেসর ড. আব্দুল হাই",
     nameEn: "Professor Dr. Abdul Hai",
@@ -76,7 +75,7 @@ const AdminProfile = () => {
   };
 
   const handleProfileClick = () => {
-    // Already on profile page
+     
   };
 
   const handleInputChange = (e) => {
@@ -88,9 +87,9 @@ const AdminProfile = () => {
   };
 
   const handleSaveProfile = () => {
-    // Save profile logic here
+     
     setIsEditing(false);
-    // Show success message
+     
   };
 
   const togglePasswordVisibility = (field) => {
@@ -101,14 +100,14 @@ const AdminProfile = () => {
   };
 
   const handleChangePassword = () => {
-    // Change password logic here
+     
     setShowPasswordChange(false);
-    // Show success message
+     
   };
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Enhanced Background */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -118,13 +117,13 @@ const AdminProfile = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
-        {/* Animated Background Elements */}
+        { }
         <div className="absolute top-20 left-20 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-red-400/15 to-orange-400/15 blur-xl" />
         <div className="absolute top-40 right-32 h-24 w-24 animate-pulse rounded-full bg-gradient-to-r from-orange-400/15 to-red-400/15 blur-xl delay-1000" />
         <div className="absolute bottom-32 left-1/3 h-40 w-40 animate-pulse rounded-full bg-gradient-to-r from-red-400/15 to-pink-400/15 blur-xl delay-2000" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="admin"
         pageTitle="Profile"
@@ -138,12 +137,12 @@ const AdminProfile = () => {
         onLogoutClick={handleLogout}
       />
 
-      {/* Main Content */}
+      { }
       <main
         className={`relative ${Z_CLASSES.CONTENT} mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8`}
       >
         <div className="space-y-6">
-          {/* Profile Header */}
+          { }
           <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
             <div className="flex flex-col items-center gap-6 md:flex-row">
               <div className="relative">
@@ -194,7 +193,7 @@ const AdminProfile = () => {
             </div>
           </div>
 
-          {/* Profile Stats */}
+          { }
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
               <div className="text-center">
@@ -248,9 +247,9 @@ const AdminProfile = () => {
             </div>
           </div>
 
-          {/* Profile Details */}
+          { }
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {/* Personal Information */}
+            { }
             <div className="lg:col-span-2">
               <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
                 <div className="mb-4 flex items-center justify-between">
@@ -414,7 +413,7 @@ const AdminProfile = () => {
               </div>
             </div>
 
-            {/* Permissions & Access */}
+            { }
             <div className="space-y-6">
               <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
                 <h3 className="mb-4 text-lg font-semibold text-white">
@@ -475,7 +474,7 @@ const AdminProfile = () => {
         </div>
       </main>
 
-      {/* Change Password Modal */}
+      { }
       {showPasswordChange && (
         <div
           className={`fixed inset-0 ${Z_CLASSES.MODAL} flex items-center justify-center bg-black/50 backdrop-blur-sm`}

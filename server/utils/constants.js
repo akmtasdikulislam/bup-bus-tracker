@@ -1,4 +1,4 @@
-// Reusable enums, roles, messages
+ 
 const USER_ROLES = {
   ADMIN: 'admin',
   DRIVER: 'driver',
@@ -122,13 +122,13 @@ const VALIDATION_PATTERNS = {
 
 const DEFAULT_VALUES = {
   PAGE_SIZE: 20,
-  MAX_FILE_SIZE: 5 * 1024 * 1024, // 5MB
+  MAX_FILE_SIZE: 5 * 1024 * 1024,  
   MAX_FILES_PER_FEEDBACK: 3,
-  LOCATION_UPDATE_INTERVAL: 30, // seconds
-  LOCATION_EXPIRY_TIME: 5 * 60 * 1000, // 5 minutes in milliseconds
+  LOCATION_UPDATE_INTERVAL: 30,  
+  LOCATION_EXPIRY_TIME: 5 * 60 * 1000,  
   PASSWORD_MIN_LENGTH: 6,
   MAX_LOGIN_ATTEMPTS: 5,
-  LOCKOUT_TIME: 15 * 60 * 1000, // 15 minutes
+  LOCKOUT_TIME: 15 * 60 * 1000,  
 };
 
 module.exports = {

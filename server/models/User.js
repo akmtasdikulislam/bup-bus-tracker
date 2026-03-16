@@ -18,14 +18,14 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: function() {
-      return !this.firebaseUid; // Password not required if using Firebase
+      return !this.firebaseUid;  
     },
     minlength: [6, 'Password must be at least 6 characters'],
   },
   firebaseUid: {
     type: String,
     unique: true,
-    sparse: true, // Allows multiple null values
+    sparse: true,  
   },
   role: {
     type: String,
@@ -64,23 +64,23 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
-  // Personal Information
+   
   personalInfo: {
-    fullName: { type: String, trim: true }, // Bengali name
-    fullNameEn: { type: String, trim: true }, // English name
+    fullName: { type: String, trim: true },  
+    fullNameEn: { type: String, trim: true },  
     dateOfBirth: { type: Date },
     gender: { 
       type: String, 
       enum: ['male', 'female', 'other'] 
     },
   },
-  // Academic Information
+   
   academicInfo: {
     department: { type: String, trim: true },
     semester: { type: String, trim: true },
     session: { type: String, trim: true },
   },
-  // Address Information
+   
   addressInfo: {
     presentAddress: { type: String, trim: true },
     permanentAddress: { type: String, trim: true },
@@ -108,11 +108,9 @@ const userSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-// Index for better query performance
 userSchema.index({ role: 1 });
 userSchema.index({ isApproved: 1 });
 
-// Virtual for full profile
 userSchema.virtual('profile').get(function() {
   return {
     id: this._id,

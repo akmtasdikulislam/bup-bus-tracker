@@ -19,7 +19,6 @@ const AllBuses = () => {
   const [searchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
 
-  // Mock buses data
   const allBuses = [
     {
       id: 1,
@@ -200,7 +199,7 @@ const AllBuses = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Enhanced Background with Glassomorphism */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -210,13 +209,13 @@ const AllBuses = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
-        {/* Animated Background Elements */}
+        { }
         <div className="absolute top-20 left-20 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-blue-400/15 to-purple-400/15 blur-xl" />
         <div className="absolute top-40 right-32 h-24 w-24 animate-pulse rounded-full bg-gradient-to-r from-green-400/15 to-blue-400/15 blur-xl delay-1000" />
         <div className="absolute bottom-32 left-1/3 h-40 w-40 animate-pulse rounded-full bg-gradient-to-r from-purple-400/15 to-pink-400/15 blur-xl delay-2000" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="passenger"
         pageTitle="All Buses"
@@ -241,11 +240,11 @@ const AllBuses = () => {
         }
       />
 
-      {/* Main Content */}
+      { }
       <main
         className={`relative ${Z_CLASSES.CONTENT} mx-auto max-w-full px-4 py-6 sm:px-6 lg:px-8`}
       >
-        {/* Header Section */}
+        { }
         <div className={`mb-6 rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -267,7 +266,7 @@ const AllBuses = () => {
             </button>
           </div>
 
-          {/* Filter Buttons */}
+          { }
           <div className="flex flex-wrap gap-2">
             {["all", "on-time", "delayed", "maintenance", "offline"].map(
               (filter) => (
@@ -287,7 +286,7 @@ const AllBuses = () => {
           </div>
         </div>
 
-        {/* Buses Grid */}
+        { }
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {filteredBuses.map((bus) => (
             <div
@@ -316,7 +315,7 @@ const AllBuses = () => {
                 </span>
               </div>
 
-              {/* Current Location & Next Stop */}
+              { }
               <div className="mb-4 space-y-2">
                 <div className="flex items-center gap-2 text-sm text-gray-200">
                   <PiMapPinDuotone className="h-4 w-4 text-blue-200" />
@@ -330,7 +329,7 @@ const AllBuses = () => {
                 </div>
               </div>
 
-              {/* Passengers & Capacity */}
+              { }
               <div className="mb-4 rounded-lg bg-white/10 p-3">
                 <div className="mb-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -362,7 +361,7 @@ const AllBuses = () => {
                 </div>
               </div>
 
-              {/* Driver Info */}
+              { }
               <div className="mb-4 rounded-lg bg-white/10 p-3">
                 <div className="mb-2 flex items-center gap-2">
                   <PiUserDuotone className="h-4 w-4 text-blue-200" />
@@ -374,7 +373,7 @@ const AllBuses = () => {
                 <div className="text-xs text-gray-400">{bus.driverPhone}</div>
               </div>
 
-              {/* Stats */}
+              { }
               <div className="border-t border-white/20 pt-4">
                 <div className="grid grid-cols-3 gap-2 text-xs">
                   <div className="text-center">

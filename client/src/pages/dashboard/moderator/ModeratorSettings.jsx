@@ -21,12 +21,10 @@ const ModeratorSettings = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showNotifications, setShowNotifications] = useState(false);
 
-  // Settings states
   const [settings, setSettings] = useState({
-    // Profile Settings
+     
     defaultView: "dashboard",
 
-    // Notification Settings
     pushNotifications: true,
     emailNotifications: true,
     smsNotifications: false,
@@ -36,12 +34,10 @@ const ModeratorSettings = () => {
     systemAlerts: true,
     emergencyAlerts: true,
 
-    // Privacy Settings
     showOnlineStatus: true,
     shareActivityData: true,
     allowSystemMonitoring: true,
 
-    // Display Settings
     darkMode: false,
     language: "bn",
     timeFormat: "24h",
@@ -49,18 +45,15 @@ const ModeratorSettings = () => {
     autoRefresh: 30,
     showDetailedStats: true,
 
-    // Security Settings
     twoFactorAuth: false,
     sessionTimeout: 60,
     passwordExpiry: 90,
 
-    // System Settings
     autoAssignments: true,
     systemBackups: true,
     debugMode: false,
     developerMode: false,
 
-    // Accessibility Settings
     highContrast: false,
     largeText: false,
     reduceMotion: false,
@@ -74,7 +67,6 @@ const ModeratorSettings = () => {
     confirm: false,
   });
 
-  // Update time every minute
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -92,7 +84,7 @@ const ModeratorSettings = () => {
   };
 
   const handleSettingsClick = () => {
-    // Already on settings page
+     
   };
 
   const handleLogout = () => {
@@ -1078,7 +1070,7 @@ const ModeratorSettings = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -1089,7 +1081,7 @@ const ModeratorSettings = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="moderator"
         pageTitle="Settings"
@@ -1110,10 +1102,10 @@ const ModeratorSettings = () => {
         onSettingsPage={true}
       />
 
-      {/* Main Content */}
+      { }
       <main className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
-          {/* Settings Navigation */}
+          { }
           <div className="lg:col-span-1">
             <div className="rounded-xl border border-white/30 bg-black/30 p-6 backdrop-blur-xl">
               <h2 className="mb-4 text-lg font-semibold text-white">
@@ -1143,11 +1135,11 @@ const ModeratorSettings = () => {
             </div>
           </div>
 
-          {/* Settings Content */}
+          { }
           <div className="lg:col-span-3">
             <div className="space-y-6">{renderContent()}</div>
 
-            {/* Save Button */}
+            { }
             <div className="mt-6 flex justify-end">
               <button className="rounded-lg border border-white/40 bg-purple-500/25 px-6 py-3 font-medium text-white shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-purple-500/35 hover:shadow-2xl">
                 Save Changes

@@ -27,7 +27,6 @@ const AdminRouteView = () => {
   const [assignedBuses, setAssignedBuses] = useState([]);
   const [routeStats, setRouteStats] = useState(null);
 
-  // Mock data - in real app, fetch based on routeId
   useEffect(() => {
     const mockRouteData = {
       id: routeId,
@@ -182,7 +181,7 @@ const AdminRouteView = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background */}
+      { }
       <div className="absolute inset-0 z-0">
         <img
           src={BUPCover}
@@ -192,7 +191,7 @@ const AdminRouteView = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
       </div>
 
-      {/* Header */}
+      { }
       <header className={`relative z-10 ${GLASS_PRESETS.HEADER_CONTAINER}`}>
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
@@ -230,7 +229,7 @@ const AdminRouteView = () => {
         </div>
       </header>
 
-      {/* Main Content */}
+      { }
       <main className="relative z-10 mx-auto max-w-full px-4 py-4 sm:px-6 lg:px-8">
         <div className={`${GLASS_PRESETS.DASHBOARD_CARD} rounded-2xl p-6`}>
           <div className="mb-6 flex items-center justify-between">
@@ -247,9 +246,9 @@ const AdminRouteView = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {/* Route Map & Basic Info */}
+            { }
             <div className="lg:col-span-2">
-              {/* Route Basic Info Header */}
+              { }
               <div className="mb-6 rounded-xl border border-white/30 bg-black/30 p-5 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40 hover:shadow-lg hover:shadow-white/10">
                 <div className="flex items-start gap-4">
                   <img
@@ -301,19 +300,19 @@ const AdminRouteView = () => {
                 </div>
               </div>
 
-              {/* Route Map and Stats */}
+              { }
               <div className="mb-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-                {/* Route Map */}
+                { }
                 <div className="lg:col-span-2">
                   <div className="relative h-[500px] overflow-hidden rounded-xl border border-white/40 bg-gradient-to-br from-blue-500/25 via-green-500/25 to-purple-500/25 backdrop-blur-md">
-                    {/* Enhanced Map Background */}
+                    { }
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-400/15 via-green-400/15 to-purple-400/15" />
 
-                    {/* Animated Background Elements */}
+                    { }
                     <div className="absolute top-10 left-10 h-16 w-16 animate-pulse rounded-full bg-gradient-to-r from-blue-400/25 to-green-400/25 blur-lg" />
                     <div className="absolute right-10 bottom-10 h-20 w-20 animate-pulse rounded-full bg-gradient-to-r from-purple-400/25 to-pink-400/25 blur-lg delay-1000" />
 
-                    {/* Route Lines */}
+                    { }
                     <svg className="absolute inset-0 h-full w-full">
                       <defs>
                         <linearGradient
@@ -338,7 +337,7 @@ const AdminRouteView = () => {
                       />
                     </svg>
 
-                    {/* Route Stops */}
+                    { }
                     {routeData.waypoints.map((stop, index) => (
                       <div
                         key={index}
@@ -355,7 +354,7 @@ const AdminRouteView = () => {
                       </div>
                     ))}
 
-                    {/* Live Buses */}
+                    { }
                     {assignedBuses
                       .filter((bus) => bus.isLive)
                       .map((bus, index) => (
@@ -376,7 +375,7 @@ const AdminRouteView = () => {
                         </div>
                       ))}
 
-                    {/* Map Legend */}
+                    { }
                     <div className="absolute bottom-4 left-4 rounded-xl border border-white/40 bg-black/60 p-3 shadow-lg backdrop-blur-md">
                       <p className="mb-2 text-sm font-semibold text-white drop-shadow-lg">
                         Route Map
@@ -405,7 +404,7 @@ const AdminRouteView = () => {
                   </div>
                 </div>
 
-                {/* Route Statistics */}
+                { }
                 <div className="lg:col-span-1">
                   <div
                     className={`${GLASS_PRESETS.DASHBOARD_CARD} h-[500px] overflow-y-auto rounded-xl p-5`}
@@ -485,7 +484,7 @@ const AdminRouteView = () => {
                         </div>
                       </div>
 
-                      {/* Peak Hours */}
+                      { }
                       <div className="rounded-xl border border-orange-300/40 bg-orange-500/20 p-4">
                         <h4 className="mb-3 flex items-center gap-2 text-base font-semibold text-orange-100">
                           <PiClockDuotone className="h-5 w-5 text-orange-300" />
@@ -512,7 +511,7 @@ const AdminRouteView = () => {
                 </div>
               </div>
 
-              {/* Route Waypoints */}
+              { }
               <div className="rounded-xl border border-white/30 bg-black/30 p-5 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40 hover:shadow-lg hover:shadow-white/10">
                 <h4 className="mb-4 flex items-center gap-2 text-lg font-semibold text-white">
                   <PiMapPinDuotone className="h-5 w-5 text-blue-400" />
@@ -543,7 +542,7 @@ const AdminRouteView = () => {
               </div>
             </div>
 
-            {/* Detailed Information Panel */}
+            { }
             <div className="lg:col-span-1">
               <div
                 className={`${GLASS_PRESETS.DASHBOARD_CARD} h-fit max-h-screen overflow-y-auto rounded-xl p-5`}
@@ -553,7 +552,7 @@ const AdminRouteView = () => {
                 </h3>
 
                 <div className="space-y-4">
-                  {/* Basic Details */}
+                  { }
                   <div className="rounded-xl border border-white/30 bg-black/30 p-4 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40">
                     <div className="mb-4 flex items-center gap-2">
                       <PiListBulletsDuotone className="h-5 w-5 text-blue-400" />
@@ -591,7 +590,7 @@ const AdminRouteView = () => {
                     </div>
                   </div>
 
-                  {/* Operating Schedule */}
+                  { }
                   <div className="rounded-xl border border-white/30 bg-black/30 p-4 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40">
                     <div className="mb-4 flex items-center gap-2">
                       <PiCalendarDuotone className="h-5 w-5 text-green-400" />
@@ -600,7 +599,7 @@ const AdminRouteView = () => {
                       </span>
                     </div>
 
-                    {/* Operating Days */}
+                    { }
                     <div className="mb-4">
                       <p className="mb-2 text-sm text-gray-400">
                         Operating Days
@@ -629,7 +628,7 @@ const AdminRouteView = () => {
                       </div>
                     </div>
 
-                    {/* Schedule Times */}
+                    { }
                     <div>
                       <p className="mb-2 text-sm text-gray-400">
                         Daily Schedule
@@ -649,7 +648,7 @@ const AdminRouteView = () => {
                     </div>
                   </div>
 
-                  {/* Assigned Buses */}
+                  { }
                   <div className="rounded-xl border border-white/30 bg-black/30 p-4 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40">
                     <div className="mb-4 flex items-center gap-2">
                       <PiBusDuotone className="h-5 w-5 text-purple-400" />
@@ -702,7 +701,7 @@ const AdminRouteView = () => {
                     </div>
                   </div>
 
-                  {/* Description */}
+                  { }
                   <div className="rounded-xl border border-white/30 bg-black/30 p-4 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40">
                     <div className="mb-4 flex items-center gap-2">
                       <PiTextTDuotone className="h-5 w-5 text-orange-400" />
@@ -715,7 +714,7 @@ const AdminRouteView = () => {
                     </p>
                   </div>
 
-                  {/* Route Metadata */}
+                  { }
                   <div className="rounded-xl border border-white/30 bg-black/30 p-4 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40">
                     <div className="mb-4 flex items-center gap-2">
                       <PiCalendarDuotone className="h-5 w-5 text-cyan-400" />

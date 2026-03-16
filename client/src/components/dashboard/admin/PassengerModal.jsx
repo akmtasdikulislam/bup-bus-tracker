@@ -66,7 +66,6 @@ const PassengerModal = ({ isOpen, onClose, passenger, mode, onSave }) => {
       [name]: value,
     }));
 
-    // Clear error for this field
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -109,7 +108,7 @@ const PassengerModal = ({ isOpen, onClose, passenger, mode, onSave }) => {
       className={`fixed inset-0 ${Z_CLASSES.MODAL} flex items-center justify-center bg-black/50 backdrop-blur-sm`}
     >
       <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-xl border border-white/30 bg-black/80 backdrop-blur-xl">
-        {/* Header */}
+        { }
         <div
           className={`sticky top-0 ${Z_CLASSES.MODAL_HEADER} flex items-center justify-between border-b border-white/20 bg-black/90 p-6`}
         >
@@ -128,10 +127,10 @@ const PassengerModal = ({ isOpen, onClose, passenger, mode, onSave }) => {
           </button>
         </div>
 
-        {/* Content */}
+        { }
         <div className={`relative ${Z_CLASSES.MODAL_CONTENT} p-6`}>
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Photo Upload */}
+            { }
             <div className="flex items-center gap-4">
               <div className="relative">
                 {formData.photo ? (
@@ -171,7 +170,7 @@ const PassengerModal = ({ isOpen, onClose, passenger, mode, onSave }) => {
               )}
             </div>
 
-            {/* Personal Information */}
+            { }
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
                 <label className="block text-sm font-medium text-white">
@@ -284,7 +283,7 @@ const PassengerModal = ({ isOpen, onClose, passenger, mode, onSave }) => {
               </div>
             </div>
 
-            {/* Academic Information */}
+            { }
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
                 <label className="block text-sm font-medium text-white">
@@ -331,7 +330,7 @@ const PassengerModal = ({ isOpen, onClose, passenger, mode, onSave }) => {
               </div>
             </div>
 
-            {/* Address */}
+            { }
             <div>
               <label className="block text-sm font-medium text-white">
                 Address <span className="text-red-400">*</span>
@@ -350,7 +349,7 @@ const PassengerModal = ({ isOpen, onClose, passenger, mode, onSave }) => {
               )}
             </div>
 
-            {/* Additional Info for View Mode */}
+            { }
             {mode === "view" && passenger && (
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
@@ -378,7 +377,7 @@ const PassengerModal = ({ isOpen, onClose, passenger, mode, onSave }) => {
               </div>
             )}
 
-            {/* Buttons */}
+            { }
             <div className="flex justify-end gap-3 pt-4">
               <button
                 type="button"

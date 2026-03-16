@@ -77,7 +77,6 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
       [name]: value,
     }));
 
-    // Clear error for this field
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -136,14 +135,13 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
     if (!formData.description.trim())
       newErrors.description = "Description is required";
 
-    // Validate schedule
     const validSchedule = formData.schedule.filter(
       (time) => time.trim() !== "",
     );
     if (validSchedule.length === 0) {
       newErrors.schedule = "At least one schedule time is required";
     } else {
-      // Validate time format
+       
       const timeRegex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
       const invalidTimes = validSchedule.filter(
         (time) => !timeRegex.test(time),
@@ -153,7 +151,6 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
       }
     }
 
-    // Validate waypoints
     const validWaypoints = formData.waypoints.filter(
       (point) => point.trim() !== "",
     );
@@ -161,7 +158,6 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
       newErrors.waypoints = "At least two waypoints are required";
     }
 
-    // Validate operating days
     if (formData.operatingDays.length === 0) {
       newErrors.operatingDays = "At least one operating day is required";
     }
@@ -192,7 +188,7 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
       className={`fixed inset-0 ${Z_CLASSES.MODAL} flex items-center justify-center bg-black/50 backdrop-blur-sm`}
     >
       <div className={`relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-xl ${GLASS_PRESETS.MODAL_CONTAINER}`}>
-        {/* Header */}
+        { }
         <div
           className={`sticky top-0 ${Z_CLASSES.MODAL_HEADER} flex items-center justify-between border-b border-white/20 bg-black/90 p-6`}
         >
@@ -211,10 +207,10 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
           </button>
         </div>
 
-        {/* Content */}
+        { }
         <div className={`relative ${Z_CLASSES.MODAL_CONTENT} p-6`}>
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Route Names */}
+            { }
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
                 <label className="block text-sm font-medium text-white">
@@ -257,7 +253,7 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
               </div>
             </div>
 
-            {/* Locations */}
+            { }
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <div>
                 <label className="block text-sm font-medium text-white">
@@ -300,7 +296,7 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
               </div>
             </div>
 
-            {/* Distance, Duration, Fare */}
+            { }
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <div>
                 <label className="block text-sm font-medium text-white">
@@ -358,7 +354,7 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
               </div>
             </div>
 
-            {/* Status and Counters */}
+            { }
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <div>
                 <label className="block text-sm font-medium text-white">
@@ -411,7 +407,7 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
               </div>
             </div>
 
-            {/* Description */}
+            { }
             <div>
               <label className="block text-sm font-medium text-white">
                 Description <span className="text-red-400">*</span>
@@ -432,7 +428,7 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
               )}
             </div>
 
-            {/* Operating Days */}
+            { }
             <div>
               <label className="mb-3 block text-sm font-medium text-white">
                 Operating Days <span className="text-red-400">*</span>
@@ -466,7 +462,7 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
               )}
             </div>
 
-            {/* Schedule */}
+            { }
             <div>
               <div className="mb-3 flex items-center justify-between">
                 <label className="block text-sm font-medium text-white">
@@ -517,7 +513,7 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
               )}
             </div>
 
-            {/* Waypoints */}
+            { }
             <div>
               <div className="mb-3 flex items-center justify-between">
                 <label className="block text-sm font-medium text-white">
@@ -569,7 +565,7 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
               )}
             </div>
 
-            {/* Additional Info for View Mode */}
+            { }
             {mode === "view" && route && (
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div>
@@ -597,7 +593,7 @@ const RouteModal = ({ isOpen, onClose, route, mode, onSave }) => {
               </div>
             )}
 
-            {/* Buttons */}
+            { }
             <div className="flex justify-end gap-3 pt-4">
               <button
                 type="button"

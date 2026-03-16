@@ -10,7 +10,6 @@ const LiveBusMap = () => {
   const [selectedBus, setSelectedBus] = useState(null);
   const [selectedRoute, setSelectedRoute] = useState("all");
 
-  // Placeholder live bus data
   const liveBuses = [
     {
       id: 1,
@@ -50,7 +49,6 @@ const LiveBusMap = () => {
     },
   ];
 
-  // Bus stops data
   const busStops = [
     {
       id: 1,
@@ -118,7 +116,7 @@ const LiveBusMap = () => {
           </h2>
         </div>
 
-        {/* Route Filter */}
+        { }
         <select
           value={selectedRoute}
           onChange={(e) => setSelectedRoute(e.target.value)}
@@ -131,17 +129,17 @@ const LiveBusMap = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {/* Interactive Map */}
+        { }
         <div className="lg:col-span-2">
           <div className="relative h-96 overflow-hidden rounded-xl border border-white/40 bg-gradient-to-br from-green-500/25 via-blue-500/25 to-purple-500/25 backdrop-blur-md">
-            {/* Enhanced Map Background */}
+            { }
             <div className="absolute inset-0 bg-gradient-to-br from-green-400/15 via-blue-400/15 to-purple-400/15" />
 
-            {/* Animated Background Elements */}
+            { }
             <div className="absolute top-10 left-10 h-16 w-16 animate-pulse rounded-full bg-gradient-to-r from-green-400/25 to-blue-400/25 blur-lg" />
             <div className="absolute right-10 bottom-10 h-20 w-20 animate-pulse rounded-full bg-gradient-to-r from-purple-400/25 to-pink-400/25 blur-lg delay-1000" />
 
-            {/* Route Lines */}
+            { }
             <svg className="absolute inset-0 h-full w-full">
               <defs>
                 <linearGradient
@@ -167,7 +165,7 @@ const LiveBusMap = () => {
                   <stop offset="100%" stopColor="#8b5cf6" />
                 </linearGradient>
               </defs>
-              {/* BUP to Savar Route */}
+              { }
               <path
                 d="M 50 50 Q 150 100 250 150 T 350 250"
                 stroke="url(#routeGradient1)"
@@ -176,7 +174,7 @@ const LiveBusMap = () => {
                 strokeDasharray="8,4"
                 className="animate-pulse drop-shadow-lg"
               />
-              {/* Savar to BUP Route */}
+              { }
               <path
                 d="M 350 280 Q 250 180 150 130 T 50 80"
                 stroke="url(#routeGradient2)"
@@ -188,7 +186,7 @@ const LiveBusMap = () => {
               />
             </svg>
 
-            {/* Bus Stops */}
+            { }
             {busStops.map((stop, index) => (
               <div
                 key={stop.id}
@@ -201,7 +199,7 @@ const LiveBusMap = () => {
               />
             ))}
 
-            {/* Live Buses */}
+            { }
             {filteredBuses.map((bus, index) => (
               <div
                 key={bus.id}
@@ -215,14 +213,14 @@ const LiveBusMap = () => {
                 <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white text-white shadow-xl backdrop-blur-sm">
                   <span className="text-sm">{getBusIcon(bus.status)}</span>
                 </div>
-                {/* Bus Number Label */}
+                { }
                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded bg-black/80 px-1 py-0.5 text-xs text-white backdrop-blur-sm">
                   {bus.busNo}
                 </div>
               </div>
             ))}
 
-            {/* Map Legend */}
+            { }
             <div className="absolute bottom-4 left-4 rounded-xl border border-white/40 bg-black/60 p-3 shadow-lg backdrop-blur-md">
               <p className="mb-2 text-xs font-semibold text-white drop-shadow-lg">
                 Live Tracking
@@ -245,7 +243,7 @@ const LiveBusMap = () => {
           </div>
         </div>
 
-        {/* Live Buses List */}
+        { }
         <div className="lg:col-span-1">
           <div className={`${GLASS_PRESETS.DASHBOARD_CARD} h-96 overflow-y-auto rounded-xl p-4`}>
             <h3 className="mb-4 text-sm font-semibold text-white drop-shadow-lg">
@@ -333,7 +331,7 @@ const LiveBusMap = () => {
         </div>
       </div>
 
-      {/* Selected Bus Details */}
+      { }
       {selectedBus && (
         <div className="mt-6 rounded-xl border border-blue-300/60 bg-blue-500/30 p-4 backdrop-blur-md">
           <div className="flex items-center justify-between">

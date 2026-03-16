@@ -16,7 +16,6 @@ const ForgotPassword = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
-  // Get the user type from URL params (if coming from login page)
   const userType = searchParams.get("type") || "passenger";
 
   const [formData, setFormData] = useState({
@@ -44,8 +43,7 @@ const ForgotPassword = () => {
       toast.success("Password reset email sent successfully!");
     } catch (error) {
       console.error("Password reset error:", error);
-      
-      // Handle specific Firebase errors
+
       let errorMessage = "Failed to send reset email. Please try again.";
       
       if (error.code) {
@@ -75,7 +73,7 @@ const ForgotPassword = () => {
   };
 
   const handleBackToLogin = () => {
-    // Navigate back to login with the same user type
+     
     navigate(`/login?type=${userType}`);
   };
 
@@ -85,7 +83,7 @@ const ForgotPassword = () => {
 
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
-      {/* Background Image Overlay */}
+      { }
       <div className="absolute inset-0 z-0">
         <img
           src={BUPCover}
@@ -95,7 +93,7 @@ const ForgotPassword = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
       </div>
 
-      {/* Back Button */}
+      { }
       <button
         onClick={handleBack}
         className="absolute top-4 left-4 z-20 flex items-center gap-2 rounded-lg border border-white/40 bg-black/40 px-3 py-2 text-white shadow-lg backdrop-blur-md transition-all duration-200 hover:bg-black/60 hover:shadow-xl sm:top-6 sm:left-6 sm:px-4 sm:py-3"
@@ -106,11 +104,11 @@ const ForgotPassword = () => {
         </span>
       </button>
 
-      {/* Main Content */}
+      { }
       <div className="relative z-10 mx-4 flex w-11/12 max-w-full flex-col items-center gap-6 rounded-xl border border-white/30 bg-white/20 px-4 py-8 shadow-2xl backdrop-blur-lg sm:mx-4 sm:max-w-md sm:gap-8 sm:rounded-2xl sm:px-8 sm:py-10 md:max-w-lg md:px-10 md:py-12">
         {!isEmailSent ? (
           <>
-            {/* Header */}
+            { }
             <div className="flex flex-col items-center gap-3 sm:gap-4">
               <button
                 onClick={handleLogoClick}
@@ -123,7 +121,7 @@ const ForgotPassword = () => {
                 />
               </button>
 
-              {/* Lock Key Icon */}
+              { }
               <div className="flex justify-center">
                 <PiLockKeyDuotone className="h-16 w-16 text-orange-300 sm:h-20 sm:w-20" />
               </div>
@@ -138,12 +136,12 @@ const ForgotPassword = () => {
               </p>
             </div>
 
-            {/* Forgot Password Form */}
+            { }
             <form
               onSubmit={handleSubmit}
               className="w-full space-y-4 sm:space-y-6"
             >
-              {/* Email Field */}
+              { }
               <div className="space-y-2">
                 <label
                   htmlFor="email"
@@ -166,7 +164,7 @@ const ForgotPassword = () => {
                 </div>
               </div>
 
-              {/* Send Reset Link Button */}
+              { }
               <button
                 type="submit"
                 disabled={isLoading}
@@ -186,7 +184,7 @@ const ForgotPassword = () => {
               </button>
             </form>
 
-            {/* Back to Login Link */}
+            { }
             <div className="text-center">
               <p className="text-sm text-gray-200/90 sm:text-base">
                 Remember your password?{" "}
@@ -201,7 +199,7 @@ const ForgotPassword = () => {
           </>
         ) : (
           <>
-            {/* Success State */}
+            { }
             <div className="flex flex-col items-center gap-4 text-center sm:gap-6">
               <button
                 onClick={handleLogoClick}
@@ -214,7 +212,7 @@ const ForgotPassword = () => {
                 />
               </button>
 
-              {/* Success Icon */}
+              { }
               <div className="flex justify-center">
                 <PiPaperPlaneTiltDuotone className="h-16 w-16 text-green-400 sm:h-20 sm:w-20" />
               </div>
@@ -236,7 +234,7 @@ const ForgotPassword = () => {
                 </p>
               </div>
 
-              {/* Action Buttons */}
+              { }
               <div className="flex w-full flex-col gap-3 sm:gap-4">
                 <button
                   onClick={handleBackToLogin}
@@ -260,7 +258,7 @@ const ForgotPassword = () => {
         )}
       </div>
 
-      {/* Footer */}
+      { }
       <footer className="relative z-10 mt-6 px-2 text-center text-xs text-gray-200/80 drop-shadow sm:mt-10">
         &copy; {new Date().getFullYear()}{" "}
         <span className="text-green-200">BUP Bus Tracker</span>. All rights

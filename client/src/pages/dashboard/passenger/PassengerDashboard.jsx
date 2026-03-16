@@ -20,22 +20,22 @@ const PassengerDashboard = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleLogout = () => {
-    // Handle logout logic here
+     
     navigate("/");
   };
 
   const handleProfile = () => {
-    // Navigate to profile page
+     
     navigate("/passenger/profile");
   };
 
   const handleSettings = () => {
-    // Navigate to settings page
+     
     navigate("/passenger/settings");
   };
 
   const handleNotificationClick = () => {
-    // Handle notification click
+     
     console.log("Notification clicked");
   };
 
@@ -54,7 +54,6 @@ const PassengerDashboard = () => {
     navigate("/passenger/buses");
   };
 
-  // Placeholder passenger data
   const passengerData = {
     name: "সারা খান",
     nameEn: "Sara Khan",
@@ -96,7 +95,7 @@ const PassengerDashboard = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Enhanced Background with Glassomorphism */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -106,13 +105,13 @@ const PassengerDashboard = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
-        {/* Animated Background Elements */}
+        { }
         <div className="absolute top-20 left-20 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-blue-400/15 to-purple-400/15 blur-xl" />
         <div className="absolute top-40 right-32 h-24 w-24 animate-pulse rounded-full bg-gradient-to-r from-green-400/15 to-blue-400/15 blur-xl delay-1000" />
         <div className="absolute bottom-32 left-1/3 h-40 w-40 animate-pulse rounded-full bg-gradient-to-r from-purple-400/15 to-pink-400/15 blur-xl delay-2000" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="passenger"
         pageTitle="Dashboard"
@@ -123,10 +122,10 @@ const PassengerDashboard = () => {
         onLogoutClick={handleLogout}
       />
 
-      {/* Quick Navigation */}
+      { }
       <div className={`relative ${Z_CLASSES.CONTENT} mx-auto max-w-full px-4 py-4 sm:px-6 lg:px-8`}>
         <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
-          {/* Header */}
+          { }
           <div className="mb-6 text-center">
             <h2 className="text-xl font-bold text-white drop-shadow-lg">
               Explore BUP Transport
@@ -136,9 +135,9 @@ const PassengerDashboard = () => {
             </p>
           </div>
 
-          {/* Main Content Layout */}
+          { }
           <div className="flex flex-col items-center justify-center gap-6 lg:flex-row">
-            {/* Left Navigation Card */}
+            { }
             <div className="flex-shrink-0">
               <button
                 onClick={handleViewAllRoutes}
@@ -159,7 +158,7 @@ const PassengerDashboard = () => {
               </button>
             </div>
 
-            {/* Expanded Search Bar in the Middle */}
+            { }
             <div className="w-full max-w-2xl flex-1">
               <form onSubmit={handleSearch} className="relative">
                 <div className="relative">
@@ -207,7 +206,7 @@ const PassengerDashboard = () => {
               </div>
             </div>
 
-            {/* Right Navigation Card */}
+            { }
             <div className="flex-shrink-0">
               <button
                 onClick={handleViewAllBuses}
@@ -229,28 +228,28 @@ const PassengerDashboard = () => {
         </div>
       </div>
 
-      {/* Main Content */}
+      { }
       <main className={`relative ${Z_CLASSES.CONTENT} mx-auto max-w-full px-4 py-6 sm:px-6 lg:px-8`}>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-          {/* Left Column - Passenger Information */}
+          { }
           <div className="lg:col-span-3">
             <PassengerInfo passengerData={passengerData} />
           </div>
 
-          {/* Middle Column - Live Bus Map */}
+          { }
           <div className="space-y-6 lg:col-span-6">
             <LiveBusMap />
-            {/* Recent Trips Card */}
+            { }
             <RecentTrips passengerData={passengerData} />
           </div>
 
-          {/* Right Column - Schedules & Upcoming Buses */}
+          { }
           <div className="lg:col-span-3">
             <div className="space-y-6">
-              {/* Route Schedules */}
+              { }
               <RouteSchedules />
 
-              {/* Upcoming Buses */}
+              { }
               <UpcomingBuses />
             </div>
           </div>

@@ -19,7 +19,6 @@ const AllRoutes = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("all");
 
-  // Mock routes data
   const allRoutes = [
     {
       id: 1,
@@ -156,7 +155,7 @@ const AllRoutes = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Enhanced Background with Glassomorphism */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -166,13 +165,13 @@ const AllRoutes = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
-        {/* Animated Background Elements */}
+        { }
         <div className="absolute top-20 left-20 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-blue-400/15 to-purple-400/15 blur-xl" />
         <div className="absolute top-40 right-32 h-24 w-24 animate-pulse rounded-full bg-gradient-to-r from-green-400/15 to-blue-400/15 blur-xl delay-1000" />
         <div className="absolute bottom-32 left-1/3 h-40 w-40 animate-pulse rounded-full bg-gradient-to-r from-purple-400/15 to-pink-400/15 blur-xl delay-2000" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="passenger"
         pageTitle="All Routes"
@@ -197,9 +196,9 @@ const AllRoutes = () => {
         }
       />
 
-      {/* Main Content */}
+      { }
       <main className={`relative ${Z_CLASSES.CONTENT} mx-auto max-w-full px-4 py-6 sm:px-6 lg:px-8`}>
-        {/* Header Section */}
+        { }
         <div className={`mb-6 rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -221,7 +220,7 @@ const AllRoutes = () => {
             </button>
           </div>
 
-          {/* Filter Buttons */}
+          { }
           <div className="flex flex-wrap gap-2">
             {["all", "active", "maintenance", "offline"].map((filter) => (
               <button
@@ -239,7 +238,7 @@ const AllRoutes = () => {
           </div>
         </div>
 
-        {/* Routes Grid */}
+        { }
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {filteredRoutes.map((route) => (
             <div
@@ -268,7 +267,7 @@ const AllRoutes = () => {
                 </span>
               </div>
 
-              {/* Route Stats */}
+              { }
               <div className="mb-4 grid grid-cols-2 gap-4">
                 <div className="flex items-center gap-2 text-sm text-gray-200">
                   <PiMapPinDuotone className="h-4 w-4 text-blue-200" />
@@ -288,7 +287,7 @@ const AllRoutes = () => {
                 </div>
               </div>
 
-              {/* Frequency & Fare */}
+              { }
               <div className="mb-4 rounded-lg bg-white/10 p-3">
                 <div className="mb-2 flex items-center justify-between">
                   <span className="text-sm text-gray-300">Frequency</span>
@@ -310,7 +309,7 @@ const AllRoutes = () => {
                 </div>
               </div>
 
-              {/* Operating Hours */}
+              { }
               <div className="border-t border-white/20 pt-4">
                 <div className="mb-2 flex items-center justify-between">
                   <span className="text-sm text-gray-300">Operating Hours</span>

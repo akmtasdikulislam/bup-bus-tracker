@@ -1,9 +1,8 @@
-// Schedule management
+ 
 const Schedule = require('../models/Schedule');
 const BusRoute = require('../models/BusRoute');
 const { validationResult } = require('express-validator');
 
-// Get all schedules
 const getAllSchedules = async (req, res) => {
   try {
     const schedules = await Schedule.find({ isActive: true })
@@ -16,7 +15,6 @@ const getAllSchedules = async (req, res) => {
   }
 };
 
-// Get schedules by route
 const getSchedulesByRoute = async (req, res) => {
   try {
     const { routeId } = req.params;
@@ -30,7 +28,6 @@ const getSchedulesByRoute = async (req, res) => {
   }
 };
 
-// Create new schedule (admin only)
 const createSchedule = async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -40,7 +37,6 @@ const createSchedule = async (req, res) => {
 
     const { routeId, driverId, departureTime, arrivalTime, busNumber, days } = req.body;
 
-    // Check if route exists
     const route = await BusRoute.findById(routeId);
     if (!route) {
       return res.status(404).json({ message: 'Route not found' });
@@ -67,7 +63,6 @@ const createSchedule = async (req, res) => {
   }
 };
 
-// Update schedule (admin only)
 const updateSchedule = async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -101,7 +96,6 @@ const updateSchedule = async (req, res) => {
   }
 };
 
-// Delete schedule (admin only)
 const deleteSchedule = async (req, res) => {
   try {
     const schedule = await Schedule.findById(req.params.id);

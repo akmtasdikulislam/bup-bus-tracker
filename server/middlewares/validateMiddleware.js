@@ -1,7 +1,6 @@
-// Request validation via express-validator
+ 
 const { validationResult } = require('express-validator');
 
-// Generic validation middleware
 const validate = (req, res, next) => {
   const errors = validationResult(req);
   
@@ -19,9 +18,8 @@ const validate = (req, res, next) => {
   next();
 };
 
-// Sanitize input data
 const sanitizeInput = (req, res, next) => {
-  // Remove any potential script tags or malicious content
+   
   const sanitizeString = (str) => {
     if (typeof str !== 'string') return str;
     return str

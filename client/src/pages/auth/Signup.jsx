@@ -27,32 +27,28 @@ const Signup = () => {
 
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
-    // Personal Information
+     
     fullName: "",
     fullNameEn: "",
     email: "",
     phone: "",
     dateOfBirth: "",
     gender: "",
-    
-    // Student Information
+
     studentId: "",
     department: "",
     semester: "",
     session: "",
-    
-    // Address Information
+
     presentAddress: "",
     permanentAddress: "",
     emergencyContact: "",
     emergencyPhone: "",
-    
-    // Account Information
+
     username: "",
     password: "",
     confirmPassword: "",
-    
-    // Terms and Privacy
+
     agreeToTerms: false,
     agreeToPrivacy: false,
     allowNotifications: true,
@@ -110,8 +106,7 @@ const Signup = () => {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
-    
-    // Clear error for this field
+
     if (errors[name]) {
       setErrors((prev) => ({
         ...prev,
@@ -234,12 +229,11 @@ const Signup = () => {
     setIsLoading(true);
 
     try {
-      // Register user with Firebase and backend
+       
       const result = await authService.register(formData);
       
       toast.success("Account created successfully! Please wait for admin approval.");
-      
-      // Clear form data
+
       setFormData({
         fullName: "",
         fullNameEn: "",
@@ -262,8 +256,7 @@ const Signup = () => {
         agreeToPrivacy: false,
         allowNotifications: true,
       });
-      
-      // Navigate to login page with success message
+
       navigate("/login?type=passenger&registered=true");
       
     } catch (error) {
@@ -727,7 +720,7 @@ const Signup = () => {
 
   return (
     <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden py-8">
-      {/* Background Image Overlay */}
+      { }
       <div className="absolute inset-0 z-0">
         <img
           src={BUPCover}
@@ -737,7 +730,7 @@ const Signup = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
       </div>
 
-      {/* Back Button */}
+      { }
       <button
         onClick={handleBack}
         className={`absolute top-4 left-4 z-20 flex items-center gap-2 rounded-lg px-3 py-2 text-white sm:top-6 sm:left-6 sm:px-4 sm:py-3 ${GLASS_PRESETS.BACK_BUTTON}`}
@@ -748,9 +741,9 @@ const Signup = () => {
         </span>
       </button>
 
-      {/* Main Content */}
+      { }
       <div className={`relative z-10 mx-6 my-4 flex w-full max-w-md flex-col items-center gap-4 rounded-xl px-6 py-6 ${GLASS_PRESETS.AUTH_MAIN}`}>
-        {/* Header */}
+        { }
         <div className="flex flex-col items-center gap-2 text-center sm:gap-3">
           <button
             onClick={handleLogoClick}
@@ -763,7 +756,7 @@ const Signup = () => {
             />
           </button>
 
-          {/* User Icon */}
+          { }
           <div className="flex justify-center">
             <PiShieldCheckDuotone className="h-12 w-12 text-blue-300 sm:h-16 sm:w-16" />
           </div>
@@ -778,14 +771,14 @@ const Signup = () => {
           </p>
         </div>
 
-        {/* Progress Bar */}
+        { }
         {renderProgressBar()}
 
-        {/* Signup Form */}
+        { }
         <form onSubmit={handleSubmit} className="w-full space-y-4">
           {renderStepContent()}
 
-          {/* Navigation Buttons */}
+          { }
           <div className="flex gap-3 pt-4">
             {currentStep > 1 && (
               <button
@@ -829,7 +822,7 @@ const Signup = () => {
           </div>
         </form>
 
-        {/* Login Link */}
+        { }
         <div className="text-center">
           <p className="text-sm text-gray-200/90 sm:text-base">
             Already have an account?{" "}
@@ -843,7 +836,7 @@ const Signup = () => {
         </div>
       </div>
 
-      {/* Footer */}
+      { }
       <footer className="relative z-10 mt-4 px-2 text-center text-xs text-gray-200/80 drop-shadow">
         &copy; {new Date().getFullYear()}{" "}
         <span className="text-green-200">BUP Bus Tracker</span>. All rights

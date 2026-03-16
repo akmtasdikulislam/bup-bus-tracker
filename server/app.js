@@ -1,4 +1,4 @@
-// Express app config (middleware, routes, error handler)
+ 
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -7,22 +7,17 @@ const rateLimit = require('express-rate-limit');
 const compression = require('compression');
 const path = require('path');
 
-// Initialize Firebase Admin SDK
 require('./config/firebase');
 
-// Import middlewares
 const { errorHandler, notFound } = require('./middlewares/errorHandler');
 const { sanitizeInput } = require('./middlewares/validateMiddleware');
 
-// Import routes
 const apiRoutes = require('./routes');
 
 const app = express();
 
-// Trust proxy for rate limiting
 app.set('trust proxy', 1);
 
-// Security middleware
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" },
   contentSecurityPolicy: {
@@ -35,7 +30,6 @@ app.use(helmet({
   },
 }));
 
-// CORS configuration
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
     ? process.env.CLIENT_URL?.split(',') || []
@@ -48,13 +42,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Compression middleware
 app.use(compression());
 
-// Rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: process.env.NODE_ENV === 'production' ? 100 : 1000, // limit each IP to 100 requests per windowMs in production
+  windowMs: 15 * 60 * 1000,  
+  max: process.env.NODE_ENV === 'production' ? 100 : 1000,  
   message: {
     error: 'Too many requests from this IP, please try again later.',
   },
@@ -64,10 +56,9 @@ const limiter = rateLimit({
 
 app.use('/api/', limiter);
 
-// Auth rate limiting (stricter)
 const authLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10, // limit each IP to 10 auth requests per windowMs
+  windowMs: 15 * 60 * 1000,  
+  max: 10,  
   message: {
     error: 'Too many authentication attempts, please try again later.',
   },
@@ -76,21 +67,17 @@ const authLimiter = rateLimit({
 
 app.use('/api/auth/', authLimiter);
 
-// Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Logging middleware
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 } else {
   app.use(morgan('combined'));
 }
 
-// Global input sanitization
 app.use(sanitizeInput);
 
-// Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ 
     status: 'OK', 
@@ -100,24 +87,18 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API routes
 app.use('/api', apiRoutes);
 
-// Serve static files (if any)
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-// Serve favicon.ico
 app.get("/favicon.ico", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "favicon.ico"));
 });
 
-// 404 handler
 app.use(notFound);
 
-// Global error handler
 app.use(errorHandler);
 
-// Graceful shutdown handler
 process.on('SIGTERM', () => {
   console.log('SIGTERM received, shutting down gracefully...');
   process.exit(0);
@@ -128,14 +109,12 @@ process.on('SIGINT', () => {
   process.exit(0);
 });
 
-// Unhandled promise rejection handler
 process.on('unhandledRejection', (err, promise) => {
   console.error('Unhandled Promise Rejection:', err.message);
   console.error('Shutting down the server due to unhandled promise rejection');
   process.exit(1);
 });
 
-// Uncaught exception handler
 process.on('uncaughtException', (err) => {
   console.error('Uncaught Exception:', err.message);
   console.error('Shutting down the server due to uncaught exception');

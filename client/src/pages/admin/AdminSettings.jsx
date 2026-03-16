@@ -24,12 +24,10 @@ const AdminSettings = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showNotifications, setShowNotifications] = useState(true);
 
-  // Settings states
   const [settings, setSettings] = useState({
-    // Profile Settings
+     
     defaultView: "dashboard",
 
-    // Notification Settings
     pushNotifications: true,
     emailNotifications: true,
     smsNotifications: true,
@@ -40,13 +38,11 @@ const AdminSettings = () => {
     backupAlerts: true,
     criticalAlerts: true,
 
-    // Privacy Settings
     showOnlineStatus: true,
     shareActivityData: false,
     allowSystemMonitoring: true,
     auditTrail: true,
 
-    // Display Settings
     darkMode: false,
     language: "bn",
     timeFormat: "24h",
@@ -55,14 +51,12 @@ const AdminSettings = () => {
     showDetailedStats: true,
     showSystemMetrics: true,
 
-    // Security Settings
     twoFactorAuth: true,
     sessionTimeout: 30,
     passwordExpiry: 60,
     loginAttemptLimit: 5,
     ipWhitelist: true,
 
-    // System Settings
     autoBackups: true,
     maintenanceMode: false,
     debugMode: false,
@@ -70,13 +64,11 @@ const AdminSettings = () => {
     systemLogging: true,
     performanceMonitoring: true,
 
-    // Database Settings
     autoOptimization: true,
     backupRetention: 30,
     queryLogging: true,
     indexOptimization: true,
 
-    // Accessibility Settings
     highContrast: false,
     largeText: false,
     reduceMotion: false,
@@ -90,7 +82,6 @@ const AdminSettings = () => {
     confirm: false,
   });
 
-  // Update time every minute
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -108,7 +99,7 @@ const AdminSettings = () => {
   };
 
   const handleSettingsClick = () => {
-    // Already on settings page
+     
   };
 
   const handleLogout = () => {
@@ -1404,7 +1395,7 @@ const AdminSettings = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Enhanced Background */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -1414,13 +1405,13 @@ const AdminSettings = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
-        {/* Animated Background Elements */}
+        { }
         <div className="absolute top-20 left-20 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-red-400/15 to-orange-400/15 blur-xl" />
         <div className="absolute top-40 right-32 h-24 w-24 animate-pulse rounded-full bg-gradient-to-r from-orange-400/15 to-red-400/15 blur-xl delay-1000" />
         <div className="absolute bottom-32 left-1/3 h-40 w-40 animate-pulse rounded-full bg-gradient-to-r from-red-400/15 to-pink-400/15 blur-xl delay-2000" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="admin"
         pageTitle="Settings"
@@ -1437,12 +1428,12 @@ const AdminSettings = () => {
         setShowNotifications={setShowNotifications}
       />
 
-      {/* Main Content */}
+      { }
       <main
         className={`relative ${Z_CLASSES.CONTENT} mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8`}
       >
         <div className="lg:grid lg:grid-cols-12 lg:gap-x-8">
-          {/* Settings Navigation */}
+          { }
           <aside className="lg:col-span-3 xl:col-span-2">
             <nav className="sticky top-8 space-y-2 rounded-xl border border-white/30 bg-black/30 p-4 backdrop-blur-xl">
               <h2 className="mb-4 text-lg font-semibold text-white">
@@ -1468,7 +1459,7 @@ const AdminSettings = () => {
             </nav>
           </aside>
 
-          {/* Settings Content */}
+          { }
           <div className="mt-6 lg:col-span-9 lg:mt-0 xl:col-span-10">
             {renderContent()}
           </div>

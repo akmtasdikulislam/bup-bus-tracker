@@ -88,7 +88,7 @@ const busRouteSchema = new mongoose.Schema({
       trim: true,
     },
     estimatedArrivalTime: {
-      type: Number, // Minutes from start
+      type: Number,  
       required: true,
     },
     order: {
@@ -97,12 +97,12 @@ const busRouteSchema = new mongoose.Schema({
     },
   }],
   distance: {
-    type: Number, // in kilometers
+    type: Number,  
     required: [true, 'Distance is required'],
     min: [0, 'Distance must be positive'],
   },
   estimatedTime: {
-    type: Number, // in minutes
+    type: Number,  
     required: [true, 'Estimated time is required'],
     min: [1, 'Estimated time must be at least 1 minute'],
   },
@@ -124,10 +124,9 @@ const busRouteSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-// Generate route code before saving
 busRouteSchema.pre('save', function(next) {
   if (!this.routeCode) {
-    // Generate a unique route code based on start and end points
+     
     const startCode = this.startPoint.name.substring(0, 3).toUpperCase();
     const endCode = this.endPoint.name.substring(0, 3).toUpperCase();
     const timestamp = Date.now().toString().slice(-4);
@@ -136,7 +135,6 @@ busRouteSchema.pre('save', function(next) {
   next();
 });
 
-// Index for better query performance
 busRouteSchema.index({ isActive: 1 });
 busRouteSchema.index({ 'startPoint.name': 'text', 'endPoint.name': 'text', routeName: 'text' });
 

@@ -22,7 +22,6 @@ const LocationStreaming = () => {
     accuracy: 5,
   });
 
-  // Timer for streaming duration
   useEffect(() => {
     let interval;
     if (isStreaming) {
@@ -38,15 +37,15 @@ const LocationStreaming = () => {
 
   const handleToggleStreaming = () => {
     if (isStreaming) {
-      // Stop streaming
+       
       setIsStreaming(false);
       setStreamingDuration(0);
       setLastUpdate(null);
     } else {
-      // Start streaming
+       
       setIsStreaming(true);
       setLastUpdate(new Date());
-      // Simulate getting current location
+       
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
@@ -107,7 +106,7 @@ const LocationStreaming = () => {
 
   return (
     <div className="hover:shadow-3xl flex h-full min-h-[664px] flex-col rounded-2xl border border-white/40 bg-black/40 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:bg-black/50">
-      {/* Header */}
+      { }
       <div className="flex-shrink-0 p-4 pb-3">
         <div className="flex items-center gap-3">
           <PiMapPinDuotone className="h-5 w-5 text-blue-200 drop-shadow-lg" />
@@ -125,10 +124,10 @@ const LocationStreaming = () => {
         </div>
       </div>
 
-      {/* Content - Flexible with proper spacing */}
+      { }
       <div className="flex flex-1 flex-col overflow-hidden px-4">
         <div className="flex flex-1 flex-col justify-between space-y-4">
-          {/* Streaming Control */}
+          { }
           <div className="rounded-xl border border-white/40 bg-white/20 p-4 backdrop-blur-md">
             <div className="mb-3 text-center">
               <button
@@ -159,9 +158,9 @@ const LocationStreaming = () => {
             </div>
           </div>
 
-          {/* Middle Section - Flexible spacing */}
+          { }
           <div className="flex flex-1 flex-col justify-center space-y-4">
-            {/* Streaming Status */}
+            { }
             {isStreaming && (
               <div className="rounded-xl border border-green-300/60 bg-green-500/30 p-4 backdrop-blur-md">
                 <div className="mb-3 flex items-center gap-2">
@@ -195,7 +194,7 @@ const LocationStreaming = () => {
               </div>
             )}
 
-            {/* Current Location */}
+            { }
             <div className="rounded-xl border border-white/40 bg-white/20 p-4 backdrop-blur-md">
               <h3 className="mb-3 text-sm font-semibold text-white drop-shadow-lg">
                 Current Location
@@ -225,7 +224,7 @@ const LocationStreaming = () => {
               </div>
             </div>
 
-            {/* System Status */}
+            { }
             <div className="rounded-xl border border-white/40 bg-white/20 p-4 backdrop-blur-md">
               <h3 className="mb-3 text-sm font-semibold text-white drop-shadow-lg">
                 System Status
@@ -272,7 +271,7 @@ const LocationStreaming = () => {
               </div>
             </div>
 
-            {/* Quick Actions */}
+            { }
             <div className="rounded-xl border border-white/40 bg-white/20 p-4 backdrop-blur-md">
               <h3 className="mb-3 text-sm font-semibold text-white drop-shadow-lg">
                 Quick Actions
@@ -296,7 +295,7 @@ const LocationStreaming = () => {
         </div>
       </div>
 
-      {/* Footer Info - Fixed at bottom */}
+      { }
       <div className="flex-shrink-0 p-4 pt-3">
         <div className="rounded-lg border border-blue-300/60 bg-blue-500/30 p-2 backdrop-blur-md">
           <div className="flex items-center justify-between text-sm">

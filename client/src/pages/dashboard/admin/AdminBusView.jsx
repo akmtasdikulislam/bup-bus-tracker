@@ -27,7 +27,6 @@ const AdminBusView = () => {
   const [routeStops, setRouteStops] = useState([]);
   const [driverInfo, setDriverInfo] = useState(null);
 
-  // Mock data - in real app, fetch based on busId
   useEffect(() => {
     const mockBusData = {
       id: busId,
@@ -195,7 +194,7 @@ const AdminBusView = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background */}
+      { }
       <div className="absolute inset-0 z-0">
         <img
           src={BUPCover}
@@ -205,7 +204,7 @@ const AdminBusView = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
       </div>
 
-      {/* Header */}
+      { }
       <header className={`relative z-10 ${GLASS_PRESETS.HEADER_CONTAINER}`}>
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
@@ -243,7 +242,7 @@ const AdminBusView = () => {
         </div>
       </header>
 
-      {/* Main Content */}
+      { }
       <main className="relative z-10 mx-auto max-w-full px-4 py-4 sm:px-6 lg:px-8">
         <div className={`${GLASS_PRESETS.DASHBOARD_CARD} rounded-2xl p-6`}>
           <div className="mb-6 flex items-center justify-between">
@@ -268,9 +267,9 @@ const AdminBusView = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {/* Interactive Map & Bus Info */}
+            { }
             <div className="lg:col-span-2">
-              {/* Bus Basic Info Header */}
+              { }
               <div className="mb-6 rounded-xl border border-white/30 bg-black/30 p-5 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40 hover:shadow-lg hover:shadow-white/10">
                 <div className="flex items-center gap-4">
                   <img
@@ -307,21 +306,21 @@ const AdminBusView = () => {
                 </div>
               </div>
 
-              {/* Map and Live Tracking Side by Side */}
+              { }
               <div className="mb-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-                {/* Interactive Map */}
+                { }
                 <div className="lg:col-span-2">
                   <div className="relative h-[500px] overflow-hidden rounded-xl border border-white/40 bg-gradient-to-br from-green-500/25 via-blue-500/25 to-purple-500/25 backdrop-blur-md">
                     {liveLocationData?.isLive ? (
                       <>
-                        {/* Enhanced Map Background */}
+                        { }
                         <div className="absolute inset-0 bg-gradient-to-br from-green-400/15 via-blue-400/15 to-purple-400/15" />
 
-                        {/* Animated Background Elements */}
+                        { }
                         <div className="absolute top-10 left-10 h-16 w-16 animate-pulse rounded-full bg-gradient-to-r from-green-400/25 to-blue-400/25 blur-lg" />
                         <div className="absolute right-10 bottom-10 h-20 w-20 animate-pulse rounded-full bg-gradient-to-r from-purple-400/25 to-pink-400/25 blur-lg delay-1000" />
 
-                        {/* Route Lines */}
+                        { }
                         <svg className="absolute inset-0 h-full w-full">
                           <defs>
                             <linearGradient
@@ -346,7 +345,7 @@ const AdminBusView = () => {
                           />
                         </svg>
 
-                        {/* Bus Stops */}
+                        { }
                         {routeStops.map((stop, index) => (
                           <div
                             key={stop.id}
@@ -359,7 +358,7 @@ const AdminBusView = () => {
                           />
                         ))}
 
-                        {/* Live Bus */}
+                        { }
                         <div
                           className="absolute h-8 w-8 cursor-pointer transition-all duration-300 hover:scale-125"
                           style={{ left: "40%", top: "50%" }}
@@ -372,7 +371,7 @@ const AdminBusView = () => {
                           </div>
                         </div>
 
-                        {/* Map Legend */}
+                        { }
                         <div className="absolute bottom-4 left-4 rounded-xl border border-white/40 bg-black/60 p-3 shadow-lg backdrop-blur-md">
                           <p className="mb-2 text-sm font-semibold text-white drop-shadow-lg">
                             Live Tracking
@@ -410,7 +409,7 @@ const AdminBusView = () => {
                   </div>
                 </div>
 
-                {/* Live Status Panel */}
+                { }
                 <div className="lg:col-span-1">
                   <div
                     className={`${GLASS_PRESETS.DASHBOARD_CARD} h-[500px] overflow-y-auto rounded-xl p-5`}
@@ -503,9 +502,9 @@ const AdminBusView = () => {
                           </div>
                         </div>
 
-                        {/* Additional Live Information */}
+                        { }
                         <div className="mt-6 space-y-4">
-                          {/* Real-time Statistics */}
+                          { }
                           <div className="rounded-xl border border-blue-300/40 bg-blue-500/20 p-4">
                             <h4 className="mb-3 flex items-center gap-2 text-base font-semibold text-blue-100">
                               <PiSpeedometerDuotone className="h-5 w-5 text-blue-300" />
@@ -539,7 +538,7 @@ const AdminBusView = () => {
                             </div>
                           </div>
 
-                          {/* Route Progress */}
+                          { }
                           <div className="rounded-xl border border-purple-300/40 bg-purple-500/20 p-4">
                             <h4 className="mb-3 flex items-center gap-2 text-base font-semibold text-purple-100">
                               <PiRoadHorizonDuotone className="h-5 w-5 text-purple-300" />
@@ -578,7 +577,7 @@ const AdminBusView = () => {
                             </div>
                           </div>
 
-                          {/* Passenger Analytics */}
+                          { }
                           <div className="rounded-xl border border-orange-300/40 bg-orange-500/20 p-4">
                             <h4 className="mb-3 flex items-center gap-2 text-base font-semibold text-orange-100">
                               <PiUsersDuotone className="h-5 w-5 text-orange-300" />
@@ -625,7 +624,7 @@ const AdminBusView = () => {
                           </p>
                         </div>
 
-                        {/* Offline Statistics */}
+                        { }
                         <div className="rounded-xl border border-white/30 bg-black/30 p-4">
                           <h4 className="mb-3 text-base font-semibold text-white">
                             Today's Summary
@@ -650,7 +649,7 @@ const AdminBusView = () => {
                           </div>
                         </div>
 
-                        {/* Schedule Information */}
+                        { }
                         <div className="rounded-xl border border-white/30 bg-black/30 p-4">
                           <h4 className="mb-3 text-base font-semibold text-white">
                             Next Schedule
@@ -684,7 +683,7 @@ const AdminBusView = () => {
                 </div>
               </div>
 
-              {/* Route Stops Grid */}
+              { }
               <div className="rounded-xl border border-white/30 bg-black/30 p-5 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40 hover:shadow-lg hover:shadow-white/10">
                 <h4 className="mb-4 flex items-center gap-2 text-lg font-semibold text-white">
                   <PiRoadHorizonDuotone className="h-5 w-5 text-blue-400" />
@@ -731,7 +730,7 @@ const AdminBusView = () => {
               </div>
             </div>
 
-            {/* Detailed Information Panel */}
+            { }
             <div className="lg:col-span-1">
               <div
                 className={`${GLASS_PRESETS.DASHBOARD_CARD} max-h-auto h-fit overflow-y-auto rounded-xl p-5`}
@@ -741,7 +740,7 @@ const AdminBusView = () => {
                 </h3>
 
                 <div className="space-y-4">
-                  {/* Driver Information */}
+                  { }
                   <div className="rounded-xl border border-white/30 bg-black/30 p-4 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40">
                     <div className="mb-4 flex items-center gap-2">
                       <PiIdentificationBadgeDuotone className="h-5 w-5 text-purple-400" />
@@ -834,7 +833,7 @@ const AdminBusView = () => {
                     )}
                   </div>
 
-                  {/* Performance Metrics */}
+                  { }
                   <div className="rounded-xl border border-white/30 bg-black/30 p-4 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40">
                     <div className="mb-4 flex items-center gap-2">
                       <PiGearDuotone className="h-5 w-5 text-green-400" />
@@ -870,7 +869,7 @@ const AdminBusView = () => {
                     </div>
                   </div>
 
-                  {/* Maintenance Info */}
+                  { }
                   <div className="rounded-xl border border-white/30 bg-black/30 p-4 backdrop-blur-xl transition-all duration-300 hover:border-white/50 hover:bg-black/40">
                     <div className="mb-4 flex items-center gap-2">
                       <PiCalendarDuotone className="h-5 w-5 text-yellow-400" />

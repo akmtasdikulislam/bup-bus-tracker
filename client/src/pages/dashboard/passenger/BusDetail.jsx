@@ -24,7 +24,7 @@ const BusDetail = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate API call
+     
     setTimeout(() => {
       const mockBus = {
         id: parseInt(busId),
@@ -180,7 +180,7 @@ const BusDetail = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Enhanced Background */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -191,7 +191,7 @@ const BusDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="passenger"
         pageTitle={`Bus Details - ${bus?.busNo} - ${bus?.route.name}`}
@@ -212,9 +212,9 @@ const BusDetail = () => {
         }
       />
 
-      {/* Main Content */}
+      { }
       <main className={`relative ${Z_CLASSES.CONTENT} flex h-[calc(100vh-4rem)]`}>
-        {/* Map Sidebar */}
+        { }
         <div className={`w-1/2 border-r border-white/30 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
           <div className="flex h-full flex-col">
             <div className="border-b border-white/30 p-4">
@@ -226,14 +226,14 @@ const BusDetail = () => {
               </p>
             </div>
 
-            {/* Mock Map Container */}
+            { }
             <div className="relative m-4 flex-1 overflow-hidden rounded-xl border border-white/30 bg-gradient-to-br from-green-900/20 to-blue-900/20">
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTBIMTBWMjBIMFYxMFoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz4KPHBhdGggZD0iTTIwIDEwSDMwVjIwSDIwVjEwWiIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPgo8cGF0aCBkPSJNMTAgMjBIMjBWMzBIMTBWMjBaIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+CjxwYXRoIGQ9Ik0zMCAyMEg0MFYzMEgzMFYyMFoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz4KPC9zdmc+')] opacity-30"></div>
 
-              {/* Route Path */}
+              { }
               <div className="absolute inset-4">
                 <svg className="h-full w-full" viewBox="0 0 400 300">
-                  {/* Route Line */}
+                  { }
                   <path
                     d="M 50 250 Q 100 200 150 180 Q 200 160 250 140 Q 300 120 350 100"
                     stroke="rgba(59, 130, 246, 0.8)"
@@ -242,7 +242,7 @@ const BusDetail = () => {
                     strokeDasharray="5,5"
                   />
 
-                  {/* Bus Stop Markers */}
+                  { }
                   {bus?.routeStops.map((stop, index) => (
                     <g key={stop.id}>
                       <circle
@@ -279,7 +279,7 @@ const BusDetail = () => {
                     </g>
                   ))}
 
-                  {/* Current Bus Position */}
+                  { }
                   <g>
                     <circle
                       cx={150}
@@ -302,7 +302,7 @@ const BusDetail = () => {
                 </svg>
               </div>
 
-              {/* Map Legend */}
+              { }
               <div className="absolute bottom-4 left-4 rounded-lg bg-black/50 p-3 backdrop-blur-md">
                 <div className="space-y-2 text-xs">
                   <div className="flex items-center gap-2">
@@ -323,10 +323,10 @@ const BusDetail = () => {
           </div>
         </div>
 
-        {/* Information Sidebar */}
+        { }
         <div className={`w-1/2 overflow-y-auto ${GLASS_PRESETS.DASHBOARD_CARD}`}>
           <div className="space-y-6 p-6">
-            {/* Bus Header */}
+            { }
             <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
               <div className="mb-4 flex items-start justify-between">
                 <div className="flex items-center gap-3">
@@ -369,7 +369,7 @@ const BusDetail = () => {
               </div>
             </div>
 
-            {/* Passenger Occupancy */}
+            { }
             <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
               <h4 className="mb-4 text-lg font-semibold text-white">
                 Passenger Occupancy
@@ -384,7 +384,7 @@ const BusDetail = () => {
                   </span>
                 </div>
 
-                {/* Occupancy Bar */}
+                { }
                 <div className="h-3 w-full overflow-hidden rounded-full bg-gray-700/50">
                   <div
                     className={`h-full transition-all duration-500 ${
@@ -413,7 +413,7 @@ const BusDetail = () => {
                   </span>
                 </div>
 
-                {/* Occupancy Status */}
+                { }
                 <div className={`flex items-center gap-2 rounded-lg p-3 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
                   {getOccupancyPercentage(bus?.passengers, bus?.capacity) >=
                   90 ? (
@@ -443,7 +443,7 @@ const BusDetail = () => {
               </div>
             </div>
 
-            {/* Driver Information */}
+            { }
             <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
               <h4 className="mb-4 text-lg font-semibold text-white">
                 Driver Information
@@ -478,7 +478,7 @@ const BusDetail = () => {
               </div>
             </div>
 
-            {/* Bus Specifications */}
+            { }
             <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
               <h4 className="mb-4 text-lg font-semibold text-white">
                 Bus Specifications
@@ -503,7 +503,7 @@ const BusDetail = () => {
                   </div>
                 </div>
 
-                {/* Fuel Level */}
+                { }
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-300">Fuel Level</span>
@@ -519,7 +519,7 @@ const BusDetail = () => {
                   </div>
                 </div>
 
-                {/* Maintenance Info */}
+                { }
                 <div className={`mt-4 rounded-lg p-3 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
                   <div className="space-y-1 text-sm">
                     <div className="flex justify-between">
@@ -539,7 +539,7 @@ const BusDetail = () => {
               </div>
             </div>
 
-            {/* Trip History */}
+            { }
             <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
               <h4 className="mb-4 text-lg font-semibold text-white">
                 Today's Trips
@@ -573,7 +573,7 @@ const BusDetail = () => {
               </div>
             </div>
 
-            {/* Upcoming Schedule */}
+            { }
             <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
               <h4 className="mb-4 text-lg font-semibold text-white">
                 Upcoming Schedule

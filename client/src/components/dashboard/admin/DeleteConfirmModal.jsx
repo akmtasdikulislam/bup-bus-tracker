@@ -15,7 +15,7 @@ const DeleteConfirmModal = ({
       className={`fixed inset-0 ${Z_CLASSES.MODAL} flex items-center justify-center bg-black/50 backdrop-blur-sm`}
     >
       <div className="relative w-full max-w-md rounded-xl border border-white/30 bg-black/80 backdrop-blur-xl">
-        {/* Header */}
+        { }
         <div className="flex items-center justify-between border-b border-white/20 p-6">
           <h2 className="text-xl font-bold text-white">Confirm Delete</h2>
           <button
@@ -26,7 +26,7 @@ const DeleteConfirmModal = ({
           </button>
         </div>
 
-        {/* Content */}
+        { }
         <div className="p-6">
           <div className="flex items-center gap-4">
             <div className="flex-shrink-0">
@@ -45,7 +45,7 @@ const DeleteConfirmModal = ({
             </div>
           </div>
 
-          {/* Buttons */}
+          { }
           <div className="mt-6 flex justify-end gap-3">
             <button
               onClick={onClose}

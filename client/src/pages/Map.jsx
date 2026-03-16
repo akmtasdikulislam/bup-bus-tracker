@@ -2,14 +2,9 @@ import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useEffect, useRef } from "react";
 
-// ── Route data from Mapbox Directions API ─────────────────────────────────────
-
-// Full route geometry — Mapbox-encoded polyline (precision 5)
 const ROUTE_GEOMETRY =
   "ifopC}_ofP~AEGgAz@KjBOj@ErDUz@G~@GEy@A}@IgAGaAMeBK}AG[IOKUCUEU?_@@]FqAJuADcCGOAOCKCQ@w@EwB@YBm@IgFAy@G_EMoJEa@COEkDB[GyDEkEGWKuDMcDB]CmA?KB[Fs@DUFYJa@P]??HWHQVYFIBEHGFIHKJGLIPIVG`@Cr@ExAI^AL?LAjAEVCb@IRELCJ?|BDtACr@AzCGbACjIIn@CNC??XCr@MTEfBUfEi@PAhAIj@?tA?jBCnBIb@ElAK|AOfGg@b@ENEJCJGFIDGBK@I?SCSW_CM{@GSGSWw@CWASA[@U@QDQDQL[Vg@l@aAb@m@jA{B^s@n@_Ar@cAhAaBP]`AaBP_@PYL_@Lg@\\sBFm@`@mDx@yGDs@Bm@?S?OCw@Ci@Go@OcBOs@GQIQQW_BiB_B_BSYw@{Ay@}Au@oASg@i@uACE?G?EBGBEDCFADCh@]f@[|@u@fAkAhAgAvAkAz@q@HQHKhCyBfEmDTQnAeA^[nBsA`@_@JMJMN_@L_@^eBZcBJo@Bc@{BC??sCQsBQiADeAHm@Lg@JkCn@QJEFGFI@IAGEEI?K@IFGHEH@HB@BTAr@S`@IzA]dAWl@EjAAt@Bz@LfAHpABxBFb@?`B?l@?jCCH?dD?NA^AVBTBd@Hl@LjCf@zCt@xCp@d@HPBf@F|CXdDJrDRlFVv@Jz@P`@Jf@P^N^P|ChB`@V`@ZXRJJhAnAhClChFvFVVRJ~@b@z@^fErATDhB^JBdBVbEv@|Dt@bB^L@J@fANvARF@FKHCF?H?RDJ@F@JDHBDDBD?H|Bb@rAR~Fl@hFb@h@Hz@PfAZPHdG`B\\Hz@JRB\\Dv@H~@Hj@Hj@Ln@LzKpCz@RxCp@dARx@Lz@HhAHfBDzDD|DFbFG|AG|AMdEWdHg@";
 
-// Waypoints from the Directions API response.
-// Each stop has a unique label derived from leg summaries and maneuver instructions.
 const WAYPOINTS = [
   { location: [90.357906, 23.839886], name: "Transportation Road of BUP" },
   { location: [90.375704, 23.837464], name: "Link Road 9 (West)" },
@@ -30,7 +25,6 @@ const START_WAYPOINT = WAYPOINTS[0];
 const END_WAYPOINT = WAYPOINTS[WAYPOINTS.length - 1];
 const STOP_WAYPOINTS = WAYPOINTS.slice(1, -1);
 
-// ── Decode Mapbox precision-5 encoded polyline → [lng, lat] pairs ─────────────
 function decodePolyline(encoded, precision = 5) {
   const factor = Math.pow(10, precision);
   const coords = [];
@@ -64,9 +58,6 @@ function decodePolyline(encoded, precision = 5) {
   return coords;
 }
 
-// ── SVG marker icons ──────────────────────────────────────────────────────────
-
-// Bus stop pin — numbered, blue
 function createStopMarkerEl(number) {
   const el = document.createElement("div");
   el.style.cssText = "cursor:pointer;width:32px;height:40px;";
@@ -81,7 +72,6 @@ function createStopMarkerEl(number) {
   return el;
 }
 
-// ── Popup HTML builder ────────────────────────────────────────────────────────
 function popupHTML(title, subtitle = "") {
   return `
     <div style="
@@ -97,14 +87,12 @@ function popupHTML(title, subtitle = "") {
     </div>`;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-
 const Map = () => {
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
 
   useEffect(() => {
-    // Override Mapbox popup chrome so only our inner HTML shows
+     
     const style = document.createElement("style");
     style.textContent = `
       .mapboxgl-popup-content {
@@ -139,7 +127,6 @@ const Map = () => {
 
     mapInstanceRef.current = map;
 
-    // Start marker (green pin)
     new mapboxgl.Marker({ color: "#22c55e" })
       .setLngLat(START_WAYPOINT.location)
       .setPopup(
@@ -149,7 +136,6 @@ const Map = () => {
       )
       .addTo(map);
 
-    // End marker (red pin)
     new mapboxgl.Marker({ color: "#ef4444" })
       .setLngLat(END_WAYPOINT.location)
       .setPopup(
@@ -157,7 +143,6 @@ const Map = () => {
       )
       .addTo(map);
 
-    // Intermediate stop markers — bus-stop pin icon
     STOP_WAYPOINTS.forEach((wp, idx) => {
       const stopNumber = idx + 1;
       const label = wp.name || `Stop ${stopNumber}`;
@@ -172,7 +157,6 @@ const Map = () => {
         .addTo(map);
     });
 
-    // User location marker (amber pin)
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -190,12 +174,11 @@ const Map = () => {
             .addTo(map);
         },
         () => {
-          // Location denied — do nothing extra
+           
         },
       );
     }
 
-    // Draw the route polyline after the map style loads
     map.on("load", () => {
       const routeCoordinates = decodePolyline(ROUTE_GEOMETRY, 5);
 
@@ -208,7 +191,6 @@ const Map = () => {
         },
       });
 
-      // White outline for contrast
       map.addLayer({
         id: "route-outline",
         type: "line",
@@ -217,7 +199,6 @@ const Map = () => {
         paint: { "line-color": "#ffffff", "line-width": 9 },
       });
 
-      // Blue route line
       map.addLayer({
         id: "route-line",
         type: "line",
@@ -226,7 +207,6 @@ const Map = () => {
         paint: { "line-color": "#0074D9", "line-width": 5 },
       });
 
-      // Fit map to full route
       const bounds = routeCoordinates.reduce(
         (b, coord) => b.extend(coord),
         new mapboxgl.LngLatBounds(routeCoordinates[0], routeCoordinates[0]),

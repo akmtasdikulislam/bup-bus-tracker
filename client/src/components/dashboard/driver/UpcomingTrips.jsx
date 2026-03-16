@@ -6,7 +6,7 @@ import {
 } from "react-icons/pi";
 
 const UpcomingTrips = () => {
-  // Reduced trips data to fit properly
+   
   const upcomingTrips = [
     {
       id: 1,
@@ -56,7 +56,7 @@ const UpcomingTrips = () => {
   return (
     <div className="hover:shadow-3xl h-full rounded-2xl border border-white/40 bg-black/40 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:bg-black/50">
       <div className="flex h-full flex-col p-4">
-        {/* Header - Compact */}
+        { }
         <div className="mb-3 flex items-center gap-2">
           <PiCalendarDuotone className="h-5 w-5 text-indigo-200 drop-shadow-lg" />
           <h2 className="text-base font-semibold text-white drop-shadow-lg">
@@ -64,16 +64,16 @@ const UpcomingTrips = () => {
           </h2>
         </div>
 
-        {/* Content - Properly sized */}
+        { }
         <div className="flex flex-1 flex-col overflow-hidden">
-          {/* Trips List - Scrollable if needed */}
+          { }
           <div className="flex-1 space-y-2 overflow-y-auto">
             {upcomingTrips.map((trip) => (
               <div
                 key={trip.id}
                 className="rounded-lg border border-white/40 bg-white/20 p-3 backdrop-blur-md transition-all duration-300 hover:bg-white/30"
               >
-                {/* Trip Header - Compact */}
+                { }
                 <div className="mb-2 flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span
@@ -94,7 +94,7 @@ const UpcomingTrips = () => {
                   </span>
                 </div>
 
-                {/* Trip Details - Compact grid */}
+                { }
                 <div className="mb-2 grid grid-cols-2 gap-1 text-xs">
                   <div className="flex items-center gap-1 text-gray-100">
                     <PiCalendarDuotone className="h-3 w-3 flex-shrink-0 drop-shadow-lg" />
@@ -122,7 +122,7 @@ const UpcomingTrips = () => {
                   </div>
                 </div>
 
-                {/* Progress Bar - Compact */}
+                { }
                 <div>
                   <div className="mb-1 flex items-center justify-between text-xs text-gray-200">
                     <span className="drop-shadow">Until departure</span>
@@ -143,7 +143,7 @@ const UpcomingTrips = () => {
             ))}
           </div>
 
-          {/* Summary - Fixed at bottom */}
+          { }
           <div className="mt-2 rounded-lg border border-indigo-300/60 bg-indigo-500/30 p-2 backdrop-blur-md">
             <div className="flex items-center justify-between text-sm">
               <span className="font-medium text-indigo-100 drop-shadow-lg">

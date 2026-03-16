@@ -32,10 +32,9 @@ const BusesManagement = () => {
   const [showModal, setShowModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [busToDelete, setBusToDelete] = useState(null);
-  const [modalMode, setModalMode] = useState("view"); // view, edit, add
+  const [modalMode, setModalMode] = useState("view");  
   const itemsPerPage = 10;
 
-  // Mock data for buses
   useEffect(() => {
     const mockBuses = [
       {
@@ -122,7 +121,6 @@ const BusesManagement = () => {
     setBuses(mockBuses);
   }, []);
 
-  // Filter and search logic
   const filteredBuses = buses.filter((bus) => {
     const matchesSearch =
       bus.busNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -141,7 +139,6 @@ const BusesManagement = () => {
     return matchesSearch && matchesStatusFilter && matchesFuelFilter;
   });
 
-  // Sort logic
   const sortedBuses = [...filteredBuses].sort((a, b) => {
     switch (sortBy) {
       case "busNumber":
@@ -161,7 +158,6 @@ const BusesManagement = () => {
     }
   });
 
-  // Pagination logic
   const totalPages = Math.ceil(sortedBuses.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentBuses = sortedBuses.slice(startIndex, startIndex + itemsPerPage);
@@ -214,7 +210,7 @@ const BusesManagement = () => {
   };
 
   const handleExport = () => {
-    // Export logic would go here
+     
     console.log("Exporting buses data...");
   };
 
@@ -254,7 +250,7 @@ const BusesManagement = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background */}
+      { }
       <div className="absolute inset-0 z-0">
         <img
           src={BUPCover}
@@ -264,7 +260,7 @@ const BusesManagement = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
       </div>
 
-      {/* Header */}
+      { }
       <header className={`relative z-10 ${GLASS_PRESETS.HEADER_CONTAINER}`}>
         <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
@@ -295,15 +291,15 @@ const BusesManagement = () => {
         </div>
       </header>
 
-      {/* Main Content */}
+      { }
       <main className="relative z-10 mx-auto max-w-full px-4 py-6 sm:px-6 lg:px-8">
         <div className="space-y-6">
-          {/* Controls */}
+          { }
           <div className="rounded-xl border border-white/30 bg-black/30 p-6 backdrop-blur-xl">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-              {/* Search and Filters */}
+              { }
               <div className="flex flex-1 flex-col gap-4 lg:flex-row lg:items-center">
-                {/* Search */}
+                { }
                 <div className="relative max-w-md flex-1">
                   <PiMagnifyingGlassDuotone className="absolute top-1/2 left-3 h-5 w-5 -translate-y-1/2 text-gray-300" />
                   <input
@@ -315,7 +311,7 @@ const BusesManagement = () => {
                   />
                 </div>
 
-                {/* Filters */}
+                { }
                 <div className="flex gap-2">
                   <div className="relative">
                     <select
@@ -363,7 +359,7 @@ const BusesManagement = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
+              { }
               <div className="flex gap-2">
                 <button
                   onClick={handleExport}
@@ -383,7 +379,7 @@ const BusesManagement = () => {
             </div>
           </div>
 
-          {/* Buses Table */}
+          { }
           <div className="overflow-hidden rounded-xl border border-white/30 bg-black/30 backdrop-blur-xl">
             <div className="overflow-x-auto">
               <table className="w-full">
@@ -518,7 +514,7 @@ const BusesManagement = () => {
               </table>
             </div>
 
-            {/* Pagination */}
+            { }
             <div className="flex items-center justify-between border-t border-white/20 bg-white/10 px-6 py-4">
               <div className="text-sm text-gray-300">
                 Showing {startIndex + 1} to{" "}
@@ -551,7 +547,7 @@ const BusesManagement = () => {
         </div>
       </main>
 
-      {/* Modals */}
+      { }
       {showModal && (
         <BusModal
           isOpen={showModal}

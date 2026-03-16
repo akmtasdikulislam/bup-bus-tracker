@@ -1,8 +1,7 @@
-// Bus route CRUD
+ 
 const BusRoute = require('../models/BusRoute');
 const { validationResult } = require('express-validator');
 
-// Get all routes
 const getAllRoutes = async (req, res) => {
   try {
     const routes = await BusRoute.find({ isActive: true });
@@ -13,7 +12,6 @@ const getAllRoutes = async (req, res) => {
   }
 };
 
-// Get route by ID
 const getRouteById = async (req, res) => {
   try {
     const route = await BusRoute.findById(req.params.id);
@@ -27,7 +25,6 @@ const getRouteById = async (req, res) => {
   }
 };
 
-// Create new route (admin only)
 const createRoute = async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -55,7 +52,6 @@ const createRoute = async (req, res) => {
   }
 };
 
-// Update route (admin only)
 const updateRoute = async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -86,7 +82,6 @@ const updateRoute = async (req, res) => {
   }
 };
 
-// Delete route (admin only)
 const deleteRoute = async (req, res) => {
   try {
     const route = await BusRoute.findById(req.params.id);

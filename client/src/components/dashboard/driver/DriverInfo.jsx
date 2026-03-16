@@ -7,7 +7,7 @@ import {
 } from "react-icons/pi";
 
 const DriverInfo = () => {
-  // Placeholder driver data
+   
   const driverData = {
     name: "মোহাম্মদ রহিম উদ্দিন",
     nameEn: "Mohammad Rahim Uddin",
@@ -33,7 +33,7 @@ const DriverInfo = () => {
       </div>
 
       <div className="flex flex-1 flex-col justify-between space-y-6">
-        {/* Driver Photo & Basic Info */}
+        { }
         <div className="text-center">
           <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full border-4 border-red-300/60 shadow-xl backdrop-blur-sm">
             <img
@@ -59,7 +59,7 @@ const DriverInfo = () => {
           </div>
         </div>
 
-        {/* Contact Information - Flexible spacing */}
+        { }
         <div className="flex flex-1 flex-col justify-center space-y-4">
           <div className="flex items-center gap-3 rounded-xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm transition-all duration-200 hover:bg-white/20">
             <PiIdentificationCardDuotone className="h-5 w-5 text-blue-300 drop-shadow" />
@@ -112,7 +112,7 @@ const DriverInfo = () => {
           </div>
         </div>
 
-        {/* Experience Badge - Fixed at bottom */}
+        { }
         <div className="rounded-xl border border-green-300/50 bg-gradient-to-r from-green-500/20 to-emerald-500/20 p-4 text-center backdrop-blur-sm">
           <p className="text-sm font-medium text-green-200 drop-shadow">
             {driverData.experience} Experience

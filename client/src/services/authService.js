@@ -6,14 +6,13 @@ import {
 } from "firebase/auth";
 import { auth } from "../lib/firebase";
 
-// API base URL
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000/api";
 
 class AuthService {
-  // Register user with Firebase and backend
+   
   async register(userData) {
     try {
-      // Create user with Firebase Auth
+       
       const userCredential = await createUserWithEmailAndPassword(
         auth, 
         userData.email, 
@@ -22,16 +21,14 @@ class AuthService {
       
       const firebaseUser = userCredential.user;
 
-      // Update Firebase profile with display name
       await updateProfile(firebaseUser, {
         displayName: userData.fullNameEn
       });
 
-      // Prepare data for backend registration
       const backendUserData = {
         name: userData.fullNameEn,
         email: userData.email,
-        role: "student", // Default role for signup
+        role: "student",  
         studentId: userData.studentId,
         firebaseUid: firebaseUser.uid,
         personalInfo: {
@@ -58,7 +55,6 @@ class AuthService {
         }
       };
 
-      // Register user in backend
       const response = await fetch(`${API_BASE_URL}/auth/register`, {
         method: "POST",
         headers: {
@@ -71,7 +67,7 @@ class AuthService {
       const result = await response.json();
 
       if (!response.ok) {
-        // If backend registration fails, delete Firebase user
+         
         await firebaseUser.delete();
         throw new Error(result.message || "Backend registration failed");
       }
@@ -84,8 +80,7 @@ class AuthService {
 
     } catch (error) {
       console.error("Registration error:", error);
-      
-      // Handle specific Firebase errors
+
       if (error.code) {
         switch (error.code) {
           case "auth/email-already-in-use":
@@ -103,16 +98,13 @@ class AuthService {
     }
   }
 
-  // Login user
   async login(email, password) {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const firebaseUser = userCredential.user;
-      
-      // Get ID token for backend verification
+
       const idToken = await firebaseUser.getIdToken();
-      
-      // Verify user with backend
+
       const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
@@ -158,7 +150,6 @@ class AuthService {
     }
   }
 
-  // Logout user
   async logout() {
     try {
       await signOut(auth);
@@ -168,12 +159,10 @@ class AuthService {
     }
   }
 
-  // Get current user
   getCurrentUser() {
     return auth.currentUser;
   }
 
-  // Get ID token for API calls
   async getIdToken() {
     const user = this.getCurrentUser();
     if (user) {

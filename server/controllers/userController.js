@@ -1,8 +1,7 @@
-// User management (approval, profile)
+ 
 const User = require('../models/User');
 const { validationResult } = require('express-validator');
 
-// Get all pending users (admin only)
 const getPendingUsers = async (req, res) => {
   try {
     const pendingUsers = await User.find({ isApproved: false }).select('-password');
@@ -13,7 +12,6 @@ const getPendingUsers = async (req, res) => {
   }
 };
 
-// Approve user (admin only)
 const approveUser = async (req, res) => {
   try {
     const { userId } = req.params;
@@ -33,7 +31,6 @@ const approveUser = async (req, res) => {
   }
 };
 
-// Get user profile
 const getProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
@@ -47,7 +44,6 @@ const getProfile = async (req, res) => {
   }
 };
 
-// Update user profile
 const updateProfile = async (req, res) => {
   try {
     const errors = validationResult(req);

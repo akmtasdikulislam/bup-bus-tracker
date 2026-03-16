@@ -20,12 +20,10 @@ const PassengerSettings = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [showNotifications, setShowNotifications] = useState(false);
 
-  // Settings states
   const [settings, setSettings] = useState({
-    // Profile Settings
+     
     favouriteRoute: "BUP ↔ Savar",
 
-    // Notification Settings
     pushNotifications: true,
     emailNotifications: true,
     smsNotifications: false,
@@ -33,25 +31,21 @@ const PassengerSettings = () => {
     routeUpdates: true,
     maintenanceAlerts: false,
 
-    // Privacy Settings
     shareLocation: true,
     publicProfile: false,
     showTripHistory: true,
     dataCollection: true,
 
-    // Display Settings
     darkMode: false,
     language: "bn",
     mapStyle: "standard",
     showBusNumbers: true,
     showDriverInfo: true,
 
-    // Security Settings
     twoFactorAuth: false,
     biometricLogin: false,
     autoLogout: 30,
 
-    // Accessibility Settings
     highContrast: false,
     largeText: false,
     reduceMotion: false,
@@ -65,7 +59,6 @@ const PassengerSettings = () => {
     confirm: false,
   });
 
-  // Update time every minute
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -83,7 +76,7 @@ const PassengerSettings = () => {
   };
 
   const handleSettingsClick = () => {
-    // Already on settings page
+     
   };
 
   const handleLogout = () => {
@@ -1076,7 +1069,7 @@ const PassengerSettings = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -1087,7 +1080,7 @@ const PassengerSettings = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="passenger"
         pageTitle="Settings"
@@ -1114,10 +1107,10 @@ const PassengerSettings = () => {
         }
       />
 
-      {/* Main Content */}
+      { }
       <main className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
-          {/* Settings Navigation */}
+          { }
           <div className="lg:col-span-1">
             <div className="rounded-xl border border-white/30 bg-black/30 p-6 backdrop-blur-xl">
               <h2 className="mb-4 text-lg font-semibold text-white">
@@ -1147,13 +1140,13 @@ const PassengerSettings = () => {
             </div>
           </div>
 
-          {/* Settings Content */}
+          { }
           <div className="lg:col-span-3">
             <div className="space-y-6">
               {renderContent()}
             </div>
 
-            {/* Save Button */}
+            { }
             <div className="mt-6 flex justify-end">
               <button className="rounded-lg border border-white/40 bg-green-500/25 px-6 py-3 font-medium text-white shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-green-500/35 hover:shadow-2xl">
                 Save Changes

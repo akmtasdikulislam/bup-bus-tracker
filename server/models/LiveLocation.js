@@ -5,7 +5,7 @@ const liveLocationSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Schedule',
     required: [true, 'Schedule ID is required'],
-    unique: true, // One location record per schedule
+    unique: true,  
   },
   driverId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -25,23 +25,23 @@ const liveLocationSchema = new mongoose.Schema({
     max: [180, 'Longitude must be between -180 and 180'],
   },
   heading: {
-    type: Number, // Direction in degrees (0-360)
+    type: Number,  
     min: [0, 'Heading must be between 0 and 360'],
     max: [360, 'Heading must be between 0 and 360'],
     default: 0,
   },
   speed: {
-    type: Number, // Speed in km/h
+    type: Number,  
     min: [0, 'Speed cannot be negative'],
     max: [200, 'Speed cannot exceed 200 km/h'],
     default: 0,
   },
   altitude: {
-    type: Number, // Altitude in meters
+    type: Number,  
     default: 0,
   },
   accuracy: {
-    type: Number, // GPS accuracy in meters
+    type: Number,  
     default: 0,
   },
   isMoving: {
@@ -65,7 +65,7 @@ const liveLocationSchema = new mongoose.Schema({
       type: String,
     },
     distanceToStop: {
-      type: Number, // Distance in meters
+      type: Number,  
     },
     estimatedArrival: {
       type: Date,
@@ -97,39 +97,33 @@ const liveLocationSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-// Update lastUpdated on save
 liveLocationSchema.pre('save', function(next) {
   this.lastUpdated = new Date();
-  
-  // Determine if the bus is moving based on speed
-  this.isMoving = this.speed > 5; // Consider moving if speed > 5 km/h
+
+  this.isMoving = this.speed > 5;  
   
   next();
 });
 
-// Index for better query performance
 liveLocationSchema.index({ driverId: 1 });
 liveLocationSchema.index({ lastUpdated: 1 });
 liveLocationSchema.index({ status: 1 });
 liveLocationSchema.index({ tripStatus: 1 });
 liveLocationSchema.index({ 
-  location: '2dsphere' // For geospatial queries
+  location: '2dsphere'  
 });
 
-// Create geospatial index
 liveLocationSchema.index({ 
   latitude: 1, 
   longitude: 1 
 });
 
-// Virtual for coordinates array (useful for geospatial operations)
 liveLocationSchema.virtual('coordinates').get(function() {
   return [this.longitude, this.latitude];
 });
 
-// Method to calculate distance to a point
 liveLocationSchema.methods.distanceTo = function(lat, lng) {
-  const R = 6371e3; // Earth's radius in meters
+  const R = 6371e3;  
   const φ1 = this.latitude * Math.PI / 180;
   const φ2 = lat * Math.PI / 180;
   const Δφ = (lat - this.latitude) * Math.PI / 180;
@@ -140,14 +134,13 @@ liveLocationSchema.methods.distanceTo = function(lat, lng) {
           Math.sin(Δλ/2) * Math.sin(Δλ/2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
-  return R * c; // Distance in meters
+  return R * c;  
 };
 
-// Static method to find buses near a location
 liveLocationSchema.statics.findNearby = function(lat, lng, radiusInMeters = 1000) {
   return this.find({
     latitude: {
-      $gte: lat - (radiusInMeters / 111320), // Rough conversion to degrees
+      $gte: lat - (radiusInMeters / 111320),  
       $lte: lat + (radiusInMeters / 111320)
     },
     longitude: {
@@ -155,7 +148,7 @@ liveLocationSchema.statics.findNearby = function(lat, lng, radiusInMeters = 1000
       $lte: lng + (radiusInMeters / (111320 * Math.cos(lat * Math.PI / 180)))
     },
     status: 'active',
-    lastUpdated: { $gte: new Date(Date.now() - 5 * 60 * 1000) } // Within last 5 minutes
+    lastUpdated: { $gte: new Date(Date.now() - 5 * 60 * 1000) }  
   });
 };
 

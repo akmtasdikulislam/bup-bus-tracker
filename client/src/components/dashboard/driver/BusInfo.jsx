@@ -1,7 +1,7 @@
 import { PiBusDuotone, PiClockDuotone, PiMapPinDuotone } from "react-icons/pi";
 
 const BusInfo = () => {
-  // Placeholder bus data
+   
   const busData = {
     busNo: "BUP-001",
     route: "BUP ↔ Savar",
@@ -43,7 +43,7 @@ const BusInfo = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-        {/* Bus Number */}
+        { }
         <div className="flex h-16 items-center gap-3 rounded-xl border border-blue-300/30 bg-blue-500/20 p-3 backdrop-blur-sm transition-all duration-200 hover:bg-blue-500/30">
           <PiBusDuotone className="h-5 w-5 flex-shrink-0 text-blue-300 drop-shadow" />
           <div className="min-w-0 flex-1">
@@ -53,7 +53,7 @@ const BusInfo = () => {
             </p>
           </div>
         </div>
-        {/* Route */}
+        { }
         <div className="flex h-16 items-center gap-3 rounded-xl border border-green-300/30 bg-green-500/20 p-3 backdrop-blur-sm transition-all duration-200 hover:bg-green-500/30">
           <PiMapPinDuotone className="h-5 w-5 flex-shrink-0 text-green-300 drop-shadow" />
           <div className="min-w-0 flex-1">
@@ -63,7 +63,7 @@ const BusInfo = () => {
             </p>
           </div>
         </div>
-        {/* Departure Time */}
+        { }
         <div className="flex h-16 items-center gap-3 rounded-xl border border-orange-300/30 bg-orange-500/20 p-3 backdrop-blur-sm transition-all duration-200 hover:bg-orange-500/30">
           <PiClockDuotone className="h-5 w-5 flex-shrink-0 text-orange-300 drop-shadow" />
           <div className="min-w-0 flex-1">
@@ -73,7 +73,7 @@ const BusInfo = () => {
             </p>
           </div>
         </div>
-        {/* Next Stop */}
+        { }
         <div className="flex h-16 items-center gap-3 rounded-xl border border-teal-300/30 bg-teal-500/20 p-3 backdrop-blur-sm transition-all duration-200 hover:bg-teal-500/30">
           <PiMapPinDuotone className="h-5 w-5 flex-shrink-0 text-teal-300 drop-shadow" />
           <div className="min-w-0 flex-1">

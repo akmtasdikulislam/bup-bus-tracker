@@ -33,7 +33,6 @@ const DriverProfile = () => {
     confirm: false,
   });
 
-  // Driver data (in a real app, this would come from an API)
   const [profileData, setProfileData] = useState({
     name: "মোহাম্মদ রহিম উদ্দিন",
     nameEn: "Mohammad Rahim Uddin",
@@ -86,7 +85,7 @@ const DriverProfile = () => {
 
   const handleSaveProfile = () => {
     setIsEditing(false);
-    // Show success message
+     
   };
 
   const togglePasswordVisibility = (field) => {
@@ -98,7 +97,7 @@ const DriverProfile = () => {
 
   const handleChangePassword = () => {
     setShowPasswordChange(false);
-    // Show success message
+     
   };
 
   const handlePhotoChange = (event) => {
@@ -114,7 +113,7 @@ const DriverProfile = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Enhanced Background */}
+      { }
       <div className={`absolute inset-0 ${Z_CLASSES.BACKGROUND}`}>
         <img
           src={BUPCover}
@@ -124,13 +123,13 @@ const DriverProfile = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
-        {/* Animated Background Elements */}
+        { }
         <div className="absolute top-20 left-20 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-green-400/15 to-blue-400/15 blur-xl" />
         <div className="absolute top-40 right-32 h-24 w-24 animate-pulse rounded-full bg-gradient-to-r from-purple-400/15 to-pink-400/15 blur-xl delay-1000" />
         <div className="absolute bottom-32 left-1/3 h-40 w-40 animate-pulse rounded-full bg-gradient-to-r from-blue-400/15 to-green-400/15 blur-xl delay-2000" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="driver"
         pageTitle="Profile"
@@ -143,12 +142,12 @@ const DriverProfile = () => {
         onProfilePage={true}
       />
 
-      {/* Main Content */}
+      { }
       <main
         className={`relative ${Z_CLASSES.CONTENT} mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8`}
       >
         <div className="space-y-6">
-          {/* Profile Header */}
+          { }
           <div className={`rounded-xl p-6 ${GLASS_PRESETS.DASHBOARD_CARD}`}>
             <div className="flex flex-col items-center gap-6 md:flex-row">
               <div className="relative">
@@ -211,7 +210,7 @@ const DriverProfile = () => {
             </div>
           </div>
 
-          {/* Driver Stats */}
+          { }
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-xl border border-white/30 bg-black/30 p-6 backdrop-blur-xl">
               <div className="text-center">
@@ -263,9 +262,9 @@ const DriverProfile = () => {
             </div>
           </div>
 
-          {/* Profile Details */}
+          { }
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            {/* Personal Information */}
+            { }
             <div className="lg:col-span-2">
               <div className="rounded-xl border border-white/30 bg-black/30 p-6 backdrop-blur-xl">
                 <div className="mb-4 flex items-center justify-between">
@@ -433,7 +432,7 @@ const DriverProfile = () => {
               </div>
             </div>
 
-            {/* Driver Status & Info */}
+            { }
             <div className="space-y-6">
               <div className="rounded-xl border border-white/30 bg-black/30 p-6 backdrop-blur-xl">
                 <h3 className="mb-4 text-lg font-semibold text-white">
@@ -499,7 +498,7 @@ const DriverProfile = () => {
         </div>
       </main>
 
-      {/* Change Password Modal */}
+      { }
       {showPasswordChange && (
         <div
           className={`fixed inset-0 ${Z_CLASSES.MODAL} flex items-center justify-center bg-black/50 backdrop-blur-sm`}

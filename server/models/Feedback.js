@@ -31,7 +31,7 @@ const feedbackSchema = new mongoose.Schema({
   scheduleId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Schedule',
-    required: false, // Not all feedback is related to a specific schedule
+    required: false,  
   },
   routeId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -122,13 +122,12 @@ const feedbackSchema = new mongoose.Schema({
   },
   isPublic: {
     type: Boolean,
-    default: false, // Whether this feedback can be shown publicly (testimonials, etc.)
+    default: false,  
   },
 }, {
   timestamps: true,
 });
 
-// Auto-assign priority based on keywords
 feedbackSchema.pre('save', function(next) {
   if (this.isNew) {
     const urgentKeywords = ['accident', 'emergency', 'danger', 'unsafe', 'broken', 'harassment'];
@@ -147,7 +146,6 @@ feedbackSchema.pre('save', function(next) {
   next();
 });
 
-// Update escalation level based on time and priority
 feedbackSchema.methods.checkEscalation = function() {
   const daysSinceCreated = Math.floor((Date.now() - this.createdAt) / (1000 * 60 * 60 * 24));
   
@@ -164,7 +162,6 @@ feedbackSchema.methods.checkEscalation = function() {
   return this.escalationLevel;
 };
 
-// Index for better query performance
 feedbackSchema.index({ userId: 1 });
 feedbackSchema.index({ type: 1 });
 feedbackSchema.index({ category: 1 });
@@ -176,19 +173,16 @@ feedbackSchema.index({ createdAt: -1 });
 feedbackSchema.index({ escalationLevel: 1 });
 feedbackSchema.index({ isPublic: 1 });
 
-// Text search index
 feedbackSchema.index({ 
   subject: 'text', 
   message: 'text',
   tags: 'text'
 });
 
-// Virtual for days since creation
 feedbackSchema.virtual('daysSinceCreated').get(function() {
   return Math.floor((Date.now() - this.createdAt) / (1000 * 60 * 60 * 24));
 });
 
-// Virtual for response time (if responded)
 feedbackSchema.virtual('responseTime').get(function() {
   if (this.respondedAt) {
     return Math.floor((this.respondedAt - this.createdAt) / (1000 * 60 * 60 * 24));

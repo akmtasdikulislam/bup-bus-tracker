@@ -12,28 +12,28 @@ const DriverDashboard = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Handle logout logic here
+     
     navigate("/");
   };
 
   const handleProfile = () => {
-    // Navigate to profile page
+     
     navigate("/driver/profile");
   };
 
   const handleSettings = () => {
-    // Navigate to settings page
+     
     navigate("/driver/settings");
   };
 
   const handleNotificationClick = () => {
-    // Handle notification click
+     
     console.log("Notification clicked");
   };
 
   return (
     <div className="min-h-screen">
-      {/* Enhanced Background with Glassomorphism */}
+      { }
       <div className="fixed inset-0 z-0">
         <img
           src={BUPCover}
@@ -43,13 +43,13 @@ const DriverDashboard = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
 
-        {/* Animated Background Elements */}
+        { }
         <div className="absolute top-20 left-20 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-green-400/15 to-blue-400/15 blur-xl" />
         <div className="absolute top-40 right-32 h-24 w-24 animate-pulse rounded-full bg-gradient-to-r from-purple-400/15 to-pink-400/15 blur-xl delay-1000" />
         <div className="absolute bottom-32 left-1/3 h-40 w-40 animate-pulse rounded-full bg-gradient-to-r from-blue-400/15 to-green-400/15 blur-xl delay-2000" />
       </div>
 
-      {/* Header */}
+      { }
       <Header
         userType="driver"
         pageTitle="Dashboard"
@@ -61,39 +61,39 @@ const DriverDashboard = () => {
         onLogoutClick={handleLogout}
       />
 
-      {/* Main Content */}
+      { }
       <main className="relative z-10 pt-4">
         <div className="mx-auto max-w-full px-4 pb-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-12">
-            {/* Left Column - Driver Information */}
+            { }
             <div className="lg:col-span-3">
               <DriverInfo />
             </div>
 
-            {/* Middle Column - Bus Info, Upcoming Trips & Map */}
+            { }
             <div className="lg:col-span-6">
               <div className="h-1/2 space-y-4">
-                {/* Top Row - Bus Info & Upcoming Trips (Same Height) */}
+                { }
                 <div className="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-4">
-                  {/* Bus Information */}
+                  { }
                   <div className="flex-1">
                     <BusInfo />
                   </div>
 
-                  {/* Upcoming Trips */}
+                  { }
                   <div className="w-full lg:w-80">
                     <UpcomingTrips />
                   </div>
                 </div>
 
-                {/* Route Map */}
+                { }
                 <div>
                   <RouteMap />
                 </div>
               </div>
             </div>
 
-            {/* Right Column - Location Streaming */}
+            { }
             <div className="lg:col-span-3">
               <LocationStreaming />
             </div>
