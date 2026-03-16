@@ -4,6 +4,7 @@ import {
   PiNavigationArrowDuotone,
   PiUsersDuotone,
 } from "react-icons/pi";
+import MapView from "../../common/MapView";
 import { GLASS_PRESETS } from "../../../utils/glassomorphism";
 
 const LiveBusMap = () => {
@@ -129,118 +130,8 @@ const LiveBusMap = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        { }
         <div className="lg:col-span-2">
-          <div className="relative h-96 overflow-hidden rounded-xl border border-white/40 bg-gradient-to-br from-green-500/25 via-blue-500/25 to-purple-500/25 backdrop-blur-md">
-            { }
-            <div className="absolute inset-0 bg-gradient-to-br from-green-400/15 via-blue-400/15 to-purple-400/15" />
-
-            { }
-            <div className="absolute top-10 left-10 h-16 w-16 animate-pulse rounded-full bg-gradient-to-r from-green-400/25 to-blue-400/25 blur-lg" />
-            <div className="absolute right-10 bottom-10 h-20 w-20 animate-pulse rounded-full bg-gradient-to-r from-purple-400/25 to-pink-400/25 blur-lg delay-1000" />
-
-            { }
-            <svg className="absolute inset-0 h-full w-full">
-              <defs>
-                <linearGradient
-                  id="routeGradient1"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="100%"
-                >
-                  <stop offset="0%" stopColor="#10b981" />
-                  <stop offset="50%" stopColor="#3b82f6" />
-                  <stop offset="100%" stopColor="#8b5cf6" />
-                </linearGradient>
-                <linearGradient
-                  id="routeGradient2"
-                  x1="100%"
-                  y1="100%"
-                  x2="0%"
-                  y2="0%"
-                >
-                  <stop offset="0%" stopColor="#f59e0b" />
-                  <stop offset="50%" stopColor="#ef4444" />
-                  <stop offset="100%" stopColor="#8b5cf6" />
-                </linearGradient>
-              </defs>
-              { }
-              <path
-                d="M 50 50 Q 150 100 250 150 T 350 250"
-                stroke="url(#routeGradient1)"
-                strokeWidth="3"
-                fill="none"
-                strokeDasharray="8,4"
-                className="animate-pulse drop-shadow-lg"
-              />
-              { }
-              <path
-                d="M 350 280 Q 250 180 150 130 T 50 80"
-                stroke="url(#routeGradient2)"
-                strokeWidth="3"
-                fill="none"
-                strokeDasharray="8,4"
-                className="animate-pulse drop-shadow-lg"
-                style={{ animationDelay: "0.5s" }}
-              />
-            </svg>
-
-            { }
-            {busStops.map((stop, index) => (
-              <div
-                key={stop.id}
-                className="absolute h-3 w-3 rounded-full border-2 border-white bg-white/60 shadow-lg backdrop-blur-sm"
-                style={{
-                  left: `${10 + (index * 80) / busStops.length}%`,
-                  top: `${20 + (index % 2) * 40}%`,
-                }}
-                title={stop.name}
-              />
-            ))}
-
-            { }
-            {filteredBuses.map((bus, index) => (
-              <div
-                key={bus.id}
-                className={`absolute cursor-pointer transition-all duration-300 hover:scale-125 ${getBusStatusColor(bus.status)}`}
-                style={{
-                  left: `${20 + index * 100}%`,
-                  top: `${30 + index * 20}%`,
-                }}
-                onClick={() => setSelectedBus(bus)}
-              >
-                <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white text-white shadow-xl backdrop-blur-sm">
-                  <span className="text-sm">{getBusIcon(bus.status)}</span>
-                </div>
-                { }
-                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded bg-black/80 px-1 py-0.5 text-xs text-white backdrop-blur-sm">
-                  {bus.busNo}
-                </div>
-              </div>
-            ))}
-
-            { }
-            <div className="absolute bottom-4 left-4 rounded-xl border border-white/40 bg-black/60 p-3 shadow-lg backdrop-blur-md">
-              <p className="mb-2 text-xs font-semibold text-white drop-shadow-lg">
-                Live Tracking
-              </p>
-              <div className="space-y-1 text-xs">
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-green-500"></div>
-                  <span className="text-green-200 drop-shadow">On Route</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 animate-pulse rounded-full bg-blue-500"></div>
-                  <span className="text-blue-200 drop-shadow">Boarding</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-white/60"></div>
-                  <span className="text-white drop-shadow">Bus Stop</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <MapView height="384px" containerClass="rounded-xl overflow-hidden border border-white/40" />
         </div>
 
         { }

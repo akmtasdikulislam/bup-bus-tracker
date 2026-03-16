@@ -17,6 +17,7 @@ import {
 import { useNavigate, useParams } from "react-router";
 import BUPCover from "../../../assets/images/bup-cover.jpg";
 import Logo from "../../../assets/logo/bup-bus-tracker-logo.png";
+import MapView from "../../../components/common/MapView";
 import { GLASS_PRESETS } from "../../../utils/glassomorphism";
 
 const AdminBusView = () => {
@@ -308,91 +309,11 @@ const AdminBusView = () => {
 
               { }
               <div className="mb-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-                { }
                 <div className="lg:col-span-2">
-                  <div className="relative h-[500px] overflow-hidden rounded-xl border border-white/40 bg-gradient-to-br from-green-500/25 via-blue-500/25 to-purple-500/25 backdrop-blur-md">
-                    {liveLocationData?.isLive ? (
-                      <>
-                        { }
-                        <div className="absolute inset-0 bg-gradient-to-br from-green-400/15 via-blue-400/15 to-purple-400/15" />
-
-                        { }
-                        <div className="absolute top-10 left-10 h-16 w-16 animate-pulse rounded-full bg-gradient-to-r from-green-400/25 to-blue-400/25 blur-lg" />
-                        <div className="absolute right-10 bottom-10 h-20 w-20 animate-pulse rounded-full bg-gradient-to-r from-purple-400/25 to-pink-400/25 blur-lg delay-1000" />
-
-                        { }
-                        <svg className="absolute inset-0 h-full w-full">
-                          <defs>
-                            <linearGradient
-                              id="routeGradient"
-                              x1="0%"
-                              y1="0%"
-                              x2="100%"
-                              y2="100%"
-                            >
-                              <stop offset="0%" stopColor="#10b981" />
-                              <stop offset="50%" stopColor="#3b82f6" />
-                              <stop offset="100%" stopColor="#8b5cf6" />
-                            </linearGradient>
-                          </defs>
-                          <path
-                            d="M 50 50 Q 150 100 250 150 T 350 250"
-                            stroke="url(#routeGradient)"
-                            strokeWidth="3"
-                            fill="none"
-                            strokeDasharray="8,4"
-                            className="animate-pulse drop-shadow-lg"
-                          />
-                        </svg>
-
-                        { }
-                        {routeStops.map((stop, index) => (
-                          <div
-                            key={stop.id}
-                            className="absolute h-3 w-3 rounded-full border-2 border-white bg-white/60 shadow-lg backdrop-blur-sm transition-transform duration-300 hover:scale-125"
-                            style={{
-                              left: `${10 + (index * 80) / routeStops.length}%`,
-                              top: `${20 + (index % 2) * 40}%`,
-                            }}
-                            title={stop.name}
-                          />
-                        ))}
-
-                        { }
-                        <div
-                          className="absolute h-8 w-8 cursor-pointer transition-all duration-300 hover:scale-125"
-                          style={{ left: "40%", top: "50%" }}
-                        >
-                          <div className="flex h-8 w-8 animate-pulse items-center justify-center rounded-full border-2 border-white bg-green-500 text-white shadow-xl backdrop-blur-sm hover:shadow-2xl hover:shadow-green-500/50">
-                            <span className="text-sm">🚌</span>
-                          </div>
-                          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded bg-black/80 px-1 py-0.5 text-xs text-white backdrop-blur-sm">
-                            {busData.busNumber}
-                          </div>
-                        </div>
-
-                        { }
-                        <div className="absolute bottom-4 left-4 rounded-xl border border-white/40 bg-black/60 p-3 shadow-lg backdrop-blur-md">
-                          <p className="mb-2 text-sm font-semibold text-white drop-shadow-lg">
-                            Live Tracking
-                          </p>
-                          <div className="space-y-1 text-sm">
-                            <div className="flex items-center gap-2">
-                              <div className="h-2 w-2 animate-pulse rounded-full bg-green-500"></div>
-                              <span className="text-green-200 drop-shadow">
-                                Live Bus
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <div className="h-2 w-2 rounded-full bg-white/60"></div>
-                              <span className="text-white drop-shadow">
-                                Bus Stop
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </>
-                    ) : (
+                  {liveLocationData?.isLive ? (
+                    <MapView height="500px" containerClass="rounded-xl overflow-hidden border border-white/40" />
+                  ) : (
+                    <div className="relative h-[500px] overflow-hidden rounded-xl border border-white/40 bg-gradient-to-br from-green-500/25 via-blue-500/25 to-purple-500/25 backdrop-blur-md">
                       <div className="flex h-full items-center justify-center">
                         <div className="text-center text-white">
                           <PiMapPinDuotone className="mx-auto mb-4 h-16 w-16 text-gray-400" />
@@ -405,8 +326,8 @@ const AdminBusView = () => {
                           </p>
                         </div>
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
 
                 { }

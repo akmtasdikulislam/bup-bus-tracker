@@ -295,12 +295,6 @@ const AllRoutes = () => {
                     {route.frequency}
                   </span>
                 </div>
-                <div className="mb-2 flex items-center justify-between">
-                  <span className="text-sm text-gray-300">Fare</span>
-                  <span className="text-sm font-medium text-green-200">
-                    {route.fare}
-                  </span>
-                </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-300">Avg. Passengers</span>
                   <span className="text-sm font-medium text-white">

@@ -18,6 +18,7 @@ import {
 import { useNavigate, useParams } from "react-router";
 import BUPCover from "../../../assets/images/bup-cover.jpg";
 import Logo from "../../../assets/logo/bup-bus-tracker-logo.png";
+import MapView from "../../../components/common/MapView";
 import { GLASS_PRESETS } from "../../../utils/glassomorphism";
 
 const AdminRouteView = () => {
@@ -302,106 +303,8 @@ const AdminRouteView = () => {
 
               { }
               <div className="mb-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-                { }
                 <div className="lg:col-span-2">
-                  <div className="relative h-[500px] overflow-hidden rounded-xl border border-white/40 bg-gradient-to-br from-blue-500/25 via-green-500/25 to-purple-500/25 backdrop-blur-md">
-                    { }
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/15 via-green-400/15 to-purple-400/15" />
-
-                    { }
-                    <div className="absolute top-10 left-10 h-16 w-16 animate-pulse rounded-full bg-gradient-to-r from-blue-400/25 to-green-400/25 blur-lg" />
-                    <div className="absolute right-10 bottom-10 h-20 w-20 animate-pulse rounded-full bg-gradient-to-r from-purple-400/25 to-pink-400/25 blur-lg delay-1000" />
-
-                    { }
-                    <svg className="absolute inset-0 h-full w-full">
-                      <defs>
-                        <linearGradient
-                          id="routeGradient"
-                          x1="0%"
-                          y1="0%"
-                          x2="100%"
-                          y2="100%"
-                        >
-                          <stop offset="0%" stopColor="#3b82f6" />
-                          <stop offset="50%" stopColor="#10b981" />
-                          <stop offset="100%" stopColor="#8b5cf6" />
-                        </linearGradient>
-                      </defs>
-                      <path
-                        d="M 50 100 Q 150 120 250 140 T 400 180 Q 450 200 480 250"
-                        stroke="url(#routeGradient)"
-                        strokeWidth="4"
-                        fill="none"
-                        strokeDasharray="10,5"
-                        className="animate-pulse drop-shadow-lg"
-                      />
-                    </svg>
-
-                    { }
-                    {routeData.waypoints.map((stop, index) => (
-                      <div
-                        key={index}
-                        className="absolute h-4 w-4 cursor-pointer rounded-full border-2 border-white bg-blue-500 shadow-lg backdrop-blur-sm transition-transform duration-300 hover:scale-125"
-                        style={{
-                          left: `${15 + (index * 70) / routeData.waypoints.length}%`,
-                          top: `${20 + (index % 2) * 35 + Math.sin(index) * 15}%`,
-                        }}
-                        title={stop}
-                      >
-                        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 rounded bg-black/80 px-2 py-1 text-xs whitespace-nowrap text-white backdrop-blur-sm">
-                          {stop}
-                        </div>
-                      </div>
-                    ))}
-
-                    { }
-                    {assignedBuses
-                      .filter((bus) => bus.isLive)
-                      .map((bus, index) => (
-                        <div
-                          key={bus.id}
-                          className="absolute h-8 w-8 cursor-pointer transition-all duration-300 hover:scale-125"
-                          style={{
-                            left: `${30 + index * 40}%`,
-                            top: `${40 + index * 20}%`,
-                          }}
-                        >
-                          <div className="flex h-8 w-8 animate-pulse items-center justify-center rounded-full border-2 border-white bg-green-500 text-white shadow-xl backdrop-blur-sm hover:shadow-2xl hover:shadow-green-500/50">
-                            <PiBusDuotone className="h-4 w-4" />
-                          </div>
-                          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 rounded bg-black/80 px-1 py-0.5 text-xs text-white backdrop-blur-sm">
-                            {bus.busNumber}
-                          </div>
-                        </div>
-                      ))}
-
-                    { }
-                    <div className="absolute bottom-4 left-4 rounded-xl border border-white/40 bg-black/60 p-3 shadow-lg backdrop-blur-md">
-                      <p className="mb-2 text-sm font-semibold text-white drop-shadow-lg">
-                        Route Map
-                      </p>
-                      <div className="space-y-1 text-sm">
-                        <div className="flex items-center gap-2">
-                          <div className="h-2 w-2 animate-pulse rounded-full bg-green-500"></div>
-                          <span className="text-green-200 drop-shadow">
-                            Live Bus
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="h-2 w-2 rounded-full bg-blue-500"></div>
-                          <span className="text-blue-200 drop-shadow">
-                            Bus Stop
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="h-1 w-4 bg-gradient-to-r from-blue-400 to-purple-400"></div>
-                          <span className="text-white drop-shadow">
-                            Route Path
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <MapView height="500px" containerClass="rounded-xl overflow-hidden border border-white/40" />
                 </div>
 
                 { }

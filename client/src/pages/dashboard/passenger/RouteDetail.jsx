@@ -4,12 +4,12 @@ import {
   PiClockDuotone,
   PiLineSegmentsDuotone,
   PiMapPinDuotone,
-  PiMoneyDuotone,
   PiUsersDuotone,
 } from "react-icons/pi";
 import { useNavigate, useParams } from "react-router";
 import BUPCover from "../../../assets/images/bup-cover.jpg";
 import Header from "../../../components/common/Header";
+import MapView from "../../../components/common/MapView";
 import { Z_CLASSES } from "../../../utils/zIndexLayers";
 
 const RouteDetail = () => {
@@ -249,86 +249,8 @@ const RouteDetail = () => {
               </p>
             </div>
 
-            { }
-            <div className="relative m-4 flex-1 overflow-hidden rounded-xl border border-white/30 bg-gradient-to-br from-green-900/20 to-blue-900/20">
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMTBIMTBWMjBIMFYxMFoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz4KPHBhdGggZD0iTTIwIDEwSDMwVjIwSDIwVjEwWiIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPgo8cGF0aCBkPSJNMTAgMjBIMjBWMzBIMTBWMjBaIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDUpIi8+CjxwYXRoIGQ9Ik0zMCAyMEg0MFYzMEgzMFYyMFoiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz4KPC9zdmc+')] opacity-30"></div>
-
-              { }
-              <div className="absolute inset-4">
-                <svg className="h-full w-full" viewBox="0 0 400 300">
-                  { }
-                  <path
-                    d="M 50 250 Q 100 200 150 180 Q 200 160 250 140 Q 300 120 350 100"
-                    stroke="rgba(59, 130, 246, 0.8)"
-                    strokeWidth="3"
-                    fill="none"
-                    strokeDasharray="5,5"
-                  />
-
-                  { }
-                  {route?.stops.map((stop, index) => (
-                    <g key={stop.id}>
-                      <circle
-                        cx={50 + index * 50}
-                        cy={250 - index * 25}
-                        r="6"
-                        fill="rgba(34, 197, 94, 0.8)"
-                        stroke="rgba(255, 255, 255, 0.8)"
-                        strokeWidth="2"
-                      />
-                      <text
-                        x={50 + index * 50}
-                        y={270 - index * 25}
-                        textAnchor="middle"
-                        className="fill-white text-xs"
-                      >
-                        {stop.name}
-                      </text>
-                    </g>
-                  ))}
-
-                  { }
-                  {route?.buses.map((bus, index) => (
-                    <g key={bus.id}>
-                      <circle
-                        cx={80 + index * 120}
-                        cy={235 - index * 30}
-                        r="8"
-                        fill="rgba(249, 115, 22, 0.8)"
-                        stroke="rgba(255, 255, 255, 0.8)"
-                        strokeWidth="2"
-                        className="animate-pulse"
-                      />
-                      <text
-                        x={80 + index * 120}
-                        y={255 - index * 30}
-                        textAnchor="middle"
-                        className="fill-white text-xs font-medium"
-                      >
-                        {bus.busNo}
-                      </text>
-                    </g>
-                  ))}
-                </svg>
-              </div>
-
-              { }
-              <div className="absolute bottom-4 left-4 rounded-lg bg-black/50 p-3 backdrop-blur-md">
-                <div className="space-y-2 text-xs">
-                  <div className="flex items-center gap-2">
-                    <div className="h-3 w-3 rounded-full bg-green-500"></div>
-                    <span className="text-white">Bus Stops</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="h-3 w-3 animate-pulse rounded-full bg-orange-500"></div>
-                    <span className="text-white">Active Buses</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="h-0.5 w-4 bg-blue-500"></div>
-                    <span className="text-white">Route Path</span>
-                  </div>
-                </div>
-              </div>
+            <div className="m-4 flex-1">
+              <MapView height="100%" containerClass="rounded-xl overflow-hidden border border-white/30" />
             </div>
           </div>
         </div>
@@ -371,10 +293,6 @@ const RouteDetail = () => {
                 <div className="flex items-center gap-2 text-gray-200">
                   <PiBusDuotone className="h-4 w-4 text-orange-200" />
                   <span>{route?.activeBuses} active buses</span>
-                </div>
-                <div className="flex items-center gap-2 text-gray-200">
-                  <PiMoneyDuotone className="h-4 w-4 text-yellow-200" />
-                  <span>{route?.fare}</span>
                 </div>
               </div>
             </div>

@@ -4,6 +4,7 @@ import {
   PiMapPinDuotone,
   PiNavigationArrowDuotone,
 } from "react-icons/pi";
+import MapView from "../../common/MapView";
 
 const RouteMap = () => {
   const [selectedStop, setSelectedStop] = useState(null);
@@ -103,74 +104,8 @@ const RouteMap = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        { }
         <div className="lg:col-span-2">
-          <div className="relative h-80 overflow-hidden rounded-xl border border-white/40 bg-gradient-to-br from-green-500/25 via-blue-500/25 to-purple-500/25 backdrop-blur-md">
-            { }
-            <div className="absolute inset-0 bg-gradient-to-br from-green-400/15 via-blue-400/15 to-purple-400/15" />
-
-            { }
-            <div className="absolute top-10 left-10 h-16 w-16 animate-pulse rounded-full bg-gradient-to-r from-green-400/25 to-blue-400/25 blur-lg" />
-            <div className="absolute right-10 bottom-10 h-20 w-20 animate-pulse rounded-full bg-gradient-to-r from-purple-400/25 to-pink-400/25 blur-lg delay-1000" />
-
-            { }
-            <svg className="absolute inset-0 h-full w-full">
-              <defs>
-                <linearGradient
-                  id="routeGradient"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="100%"
-                >
-                  <stop offset="0%" stopColor="#10b981" />
-                  <stop offset="50%" stopColor="#3b82f6" />
-                  <stop offset="100%" stopColor="#8b5cf6" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M 50 50 Q 150 100 250 150 T 350 250"
-                stroke="url(#routeGradient)"
-                strokeWidth="4"
-                fill="none"
-                strokeDasharray="10,5"
-                className="animate-pulse drop-shadow-lg"
-              />
-            </svg>
-
-            { }
-            {busStops.map((stop, index) => (
-              <div
-                key={stop.id}
-                className={`absolute h-4 w-4 cursor-pointer rounded-full border-2 border-white shadow-lg transition-all duration-300 hover:scale-125 ${getStopStatusColor(
-                  stop.status,
-                )}`}
-                style={{
-                  left: `${10 + (index * 80) / busStops.length}%`,
-                  top: `${20 + (index % 2) * 30}%`,
-                }}
-                onClick={() => setSelectedStop(stop)}
-                title={stop.name}
-              />
-            ))}
-
-            { }
-            <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2">
-              <div className="flex h-8 w-8 animate-bounce items-center justify-center rounded-full border border-white/40 bg-red-500/90 text-white shadow-xl backdrop-blur-sm">
-                <PiNavigationArrowDuotone className="h-4 w-4 drop-shadow-lg" />
-              </div>
-            </div>
-
-            { }
-            <div className="absolute bottom-4 left-4 rounded-xl border border-white/40 bg-black/50 px-3 py-2 shadow-lg backdrop-blur-md">
-              <p className="text-xs font-semibold text-white drop-shadow-lg">
-                BUP → Savar Route
-              </p>
-              <p className="text-xs text-green-200 drop-shadow">
-                Live Tracking Active
-              </p>
-            </div>
-          </div>
+          <MapView height="320px" containerClass="rounded-xl overflow-hidden border border-white/40" />
         </div>
 
         { }
