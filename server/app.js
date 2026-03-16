@@ -7,6 +7,9 @@ const rateLimit = require('express-rate-limit');
 const compression = require('compression');
 const path = require('path');
 
+// Initialize Firebase Admin SDK
+require('./config/firebase');
+
 // Import middlewares
 const { errorHandler, notFound } = require('./middlewares/errorHandler');
 const { sanitizeInput } = require('./middlewares/validateMiddleware');

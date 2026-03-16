@@ -17,8 +17,15 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, 'Password is required'],
+    required: function() {
+      return !this.firebaseUid; // Password not required if using Firebase
+    },
     minlength: [6, 'Password must be at least 6 characters'],
+  },
+  firebaseUid: {
+    type: String,
+    unique: true,
+    sparse: true, // Allows multiple null values
   },
   role: {
     type: String,
@@ -57,6 +64,33 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
+  // Personal Information
+  personalInfo: {
+    fullName: { type: String, trim: true }, // Bengali name
+    fullNameEn: { type: String, trim: true }, // English name
+    dateOfBirth: { type: Date },
+    gender: { 
+      type: String, 
+      enum: ['male', 'female', 'other'] 
+    },
+  },
+  // Academic Information
+  academicInfo: {
+    department: { type: String, trim: true },
+    semester: { type: String, trim: true },
+    session: { type: String, trim: true },
+  },
+  // Address Information
+  addressInfo: {
+    presentAddress: { type: String, trim: true },
+    permanentAddress: { type: String, trim: true },
+    emergencyContact: { type: String, trim: true },
+    emergencyPhone: { 
+      type: String, 
+      trim: true,
+      match: [/^\+?[1-9]\d{1,14}$/, 'Please enter a valid emergency phone number']
+    },
+  },
   preferences: {
     notifications: {
       email: { type: Boolean, default: true },
@@ -68,6 +102,7 @@ const userSchema = new mongoose.Schema({
       default: 'en',
       enum: ['en', 'bn'],
     },
+    allowNotifications: { type: Boolean, default: true },
   },
 }, {
   timestamps: true,

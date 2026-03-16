@@ -3,9 +3,160 @@ import BUPCover from "./assets/images/bup-cover.jpg";
 import AkmTasdikulIslam from "./assets/images/developers/akm-tasdikul-islam.png";
 import MuztabaRafid from "./assets/images/developers/muztaba-rafid.png";
 import Logo from "./assets/logo/bup-bus-tracker-logo.png";
+import AdminProfile from "./pages/admin/AdminProfile";
+import AdminSettings from "./pages/admin/AdminSettings";
+import ForgotPassword from "./pages/auth/ForgotPassword";
+import Login from "./pages/auth/Login";
+import Signup from "./pages/auth/Signup";
+import AdminDashboard from "./pages/dashboard/admin/AdminDashboard";
+import AdminBusView from "./pages/dashboard/admin/AdminBusView";
+import AdminRouteView from "./pages/dashboard/admin/AdminRouteView";
+import BusesManagement from "./pages/dashboard/admin/BusesManagement";
+import DriversManagement from "./pages/dashboard/admin/DriversManagement";
+import ModeratorsManagement from "./pages/dashboard/admin/ModeratorsManagement";
+import PassengersManagement from "./pages/dashboard/admin/PassengersManagement";
+import RoutesManagement from "./pages/dashboard/admin/RoutesManagement";
+import DriverDashboard from "./pages/dashboard/driver/DriverDashboard";
+import ModeratorBusesManagement from "./pages/dashboard/moderator/ModeratorBusesManagement";
+import ModeratorDashboard from "./pages/dashboard/moderator/ModeratorDashboard";
+import ModeratorProfile from "./pages/dashboard/moderator/ModeratorProfile";
+import ModeratorRoutesManagement from "./pages/dashboard/moderator/ModeratorRoutesManagement";
+import ModeratorSettings from "./pages/dashboard/moderator/ModeratorSettings";
+import AllBuses from "./pages/dashboard/passenger/AllBuses";
+import AllRoutes from "./pages/dashboard/passenger/AllRoutes";
+import BusDetail from "./pages/dashboard/passenger/BusDetail";
+import PassengerDashboard from "./pages/dashboard/passenger/PassengerDashboard";
+import PassengerSettings from "./pages/dashboard/passenger/PassengerSettings";
+import RouteDetail from "./pages/dashboard/passenger/RouteDetail";
+import SearchResults from "./pages/dashboard/passenger/SearchResults";
+import DriverProfile from "./pages/driver/DriverProfile";
+import DriverSettings from "./pages/driver/DriverSettings";
+import Map from "./pages/Map";
+import Home from "./pages/public/Home";
+
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/admin",
+    element: <AdminDashboard />,
+  },
+  {
+    path: "/admin/profile",
+    element: <AdminProfile />,
+  },
+  {
+    path: "/admin/settings",
+    element: <AdminSettings />,
+  },
+  {
+    path: "/admin/passengers",
+    element: <PassengersManagement />,
+  },
+  {
+    path: "/admin/drivers",
+    element: <DriversManagement />,
+  },
+  {
+    path: "/admin/buses",
+    element: <BusesManagement />,
+  },
+  {
+    path: "/admin/buses/view/:busId",
+    element: <AdminBusView />,
+  },
+  {
+    path: "/admin/routes",
+    element: <RoutesManagement />,
+  },
+  {
+    path: "/admin/routes/view/:routeId",
+    element: <AdminRouteView />,
+  },
+  {
+    path: "/admin/moderators",
+    element: <ModeratorsManagement />,
+  },
+  {
+    path: "/driver/dashboard",
+    element: <DriverDashboard />,
+  },
+  {
+    path: "/driver/profile",
+    element: <DriverProfile />,
+  },
+  {
+    path: "/driver/settings",
+    element: <DriverSettings />,
+  },
+  {
+    path: "/moderator",
+    element: <ModeratorDashboard />,
+  },
+  {
+    path: "/moderator/buses",
+    element: <ModeratorBusesManagement />,
+  },
+  {
+    path: "/moderator/routes",
+    element: <ModeratorRoutesManagement />,
+  },
+  {
+    path: "/moderator/profile",
+    element: <ModeratorProfile />,
+  },
+  {
+    path: "/moderator/settings",
+    element: <ModeratorSettings />,
+  },
+  {
+    path: "/passenger/dashboard",
+    element: <PassengerDashboard />,
+  },
+  {
+    path: "/passenger/settings",
+    element: <PassengerSettings />,
+  },
+  {
+    path: "/passenger/search",
+    element: <SearchResults />,
+  },
+  {
+    path: "/passenger/routes",
+    element: <AllRoutes />,
+  },
+  {
+    path: "/passenger/routes/:routeId",
+    element: <RouteDetail />,
+  },
+  {
+    path: "/passenger/buses",
+    element: <AllBuses />,
+  },
+  {
+    path: "/passenger/buses/:busId",
+    element: <BusDetail />,
+  },
+  {
+    path: "/map",
+    element: <Map />,
+  },
+  {
+    path: "/coming-soon",
     element: (
       <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
         {/* Background Image Overlay */}
