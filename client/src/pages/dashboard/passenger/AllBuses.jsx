@@ -221,7 +221,7 @@ const AllBuses = () => {
         userType="passenger"
         pageTitle="All Buses"
         showBackButton={true}
-        backButtonPath="/passenger/dashboard"
+        backButtonPath="/passenger"
         onLogoutClick={handleLogout}
         customActions={
           <div className="flex items-center gap-2">

@@ -316,7 +316,7 @@ const SearchResults = () => {
         userType="passenger"
         pageTitle={`Search Results - "${searchParams.get("q")}"`}
         showBackButton={true}
-        backButtonPath="/passenger/dashboard"
+        backButtonPath="/passenger"
         notificationCount={3}
         onNotificationClick={handleNotificationClick}
         onProfileClick={handleProfileClick}
@@ -357,7 +357,7 @@ const SearchResults = () => {
             </div>
             <div className="flex flex-wrap items-center gap-3">
               <button
-                onClick={() => navigate("/passenger/dashboard")}
+                onClick={() => navigate("/passenger")}
                 className="group flex items-center gap-2 rounded-lg border border-white/40 bg-white/25 px-4 py-2 text-white shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-white/35 hover:shadow-2xl"
               >
                 <span className="font-medium">Dashboard</span>

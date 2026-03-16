@@ -114,7 +114,7 @@ const AllRoutes = () => {
   ];
 
   const handleBackToDashboard = () => {
-    navigate("/passenger/dashboard");
+    navigate("/passenger");
   };
 
   const handleLogout = () => {

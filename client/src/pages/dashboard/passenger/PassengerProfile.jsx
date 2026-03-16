@@ -161,7 +161,7 @@ const PassengerProfile = () => {
         userType="passenger"
         pageTitle="Profile"
         showBackButton={true}
-        backButtonPath="/passenger/dashboard"
+        backButtonPath="/passenger"
         notificationCount={1}
         onNotificationClick={handleNotificationClick}
         onProfileClick={handleProfileClick}

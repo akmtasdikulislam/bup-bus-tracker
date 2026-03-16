@@ -135,7 +135,7 @@ const DriverProfile = () => {
         userType="driver"
         pageTitle="Profile"
         showBackButton={true}
-        backButtonPath="/driver/dashboard"
+        backButtonPath="/driver"
         notificationCount={3}
         onLogoutClick={handleLogout}
         onNotificationClick={toggleNotifications}

@@ -1092,7 +1092,7 @@ const PassengerSettings = () => {
         userType="passenger"
         pageTitle="Settings"
         showBackButton={true}
-        backButtonPath="/passenger/dashboard"
+        backButtonPath="/passenger"
         showDateTime={true}
         showNotifications={true}
         showProfile={true}

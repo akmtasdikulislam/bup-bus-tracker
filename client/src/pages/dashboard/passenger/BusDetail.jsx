@@ -196,7 +196,7 @@ const BusDetail = () => {
         userType="passenger"
         pageTitle={`Bus Details - ${bus?.busNo} - ${bus?.route.name}`}
         showBackButton={true}
-        backButtonPath="/passenger/dashboard"
+        backButtonPath="/passenger"
         notificationCount={1}
         onNotificationClick={handleNotificationClick}
         onProfileClick={handleProfileClick}

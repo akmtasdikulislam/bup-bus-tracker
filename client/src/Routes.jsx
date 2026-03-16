@@ -70,7 +70,7 @@ const router = createBrowserRouter([
   { path: "/admin/routes/view/:routeId", element: <AdminRouteView /> },
 
   // ── Driver ────────────────────────────────────────────────────────────────
-  { path: "/driver/dashboard", element: <DriverDashboard /> },
+  { path: "/driver", element: <DriverDashboard /> },
   { path: "/driver/profile", element: <DriverProfile /> },
   { path: "/driver/settings", element: <DriverSettings /> },
 
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
   { path: "/moderator/settings", element: <ModeratorSettings /> },
 
   // ── Passenger ─────────────────────────────────────────────────────────────
-  { path: "/passenger/dashboard", element: <PassengerDashboard /> },
+  { path: "/passenger", element: <PassengerDashboard /> },
   { path: "/passenger/profile", element: <PassengerProfile /> },
   { path: "/passenger/settings", element: <PassengerSettings /> },
   { path: "/passenger/search", element: <SearchResults /> },
