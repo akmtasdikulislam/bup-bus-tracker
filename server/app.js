@@ -15,12 +15,7 @@ const { errorHandler, notFound } = require('./middlewares/errorHandler');
 const { sanitizeInput } = require('./middlewares/validateMiddleware');
 
 // Import routes
-const authRoutes = require('./routes/authRoutes');
-const userRoutes = require('./routes/userRoutes');
-const routeRoutes = require('./routes/routeRoutes');
-const scheduleRoutes = require('./routes/scheduleRoutes');
-const locationRoutes = require('./routes/locationRoutes');
-const feedbackRoutes = require('./routes/feedbackRoutes');
+const apiRoutes = require('./routes');
 
 const app = express();
 
@@ -106,30 +101,7 @@ app.get('/health', (req, res) => {
 });
 
 // API routes
-app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/routes', routeRoutes);
-app.use('/api/schedules', scheduleRoutes);
-app.use('/api/location', locationRoutes);
-app.use('/api/feedback', feedbackRoutes);
-
-// API info endpoint
-app.get('/api', (req, res) => {
-  res.json({
-    name: 'BUP Bus Tracker API',
-    version: '1.0.0',
-    description: 'Real-time bus tracking system for BUP',
-    endpoints: {
-      auth: '/api/auth',
-      users: '/api/users',
-      routes: '/api/routes',
-      schedules: '/api/schedules',
-      location: '/api/location',
-      feedback: '/api/feedback',
-    },
-    documentation: process.env.API_DOCS_URL || '/api/docs',
-  });
-});
+app.use('/api', apiRoutes);
 
 // Serve static files (if any)
 app.use('/static', express.static(path.join(__dirname, 'public')));
